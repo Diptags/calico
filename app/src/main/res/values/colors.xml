@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary Colors -->
+    <color name="colorPrimary">#2399EF</color>
+    <color name="colorPrimaryDark">#166AAC</color>
+
+    <!-- Dashboard Colors (Main) -->
+    <color name="homeBackground">#F2F5F8</color>
+    <color name="bannerBackground">#F1E9CE</color>
+    <color name="bannerBackgroundlight">#56F1E9CE</color>
+
+    <!-- Fragment Colors -->
+    <color name="food_background">#B8D4F7</color>
+    <color name="beverage_background">#F4E8DA</color>
+
+    <!-- Dashboard Colors (Cards) -->
+    <color name="card1">#D4CBE5</color>
+    <color name="card2">#7ADCCF</color>
+    <color name="card3">#F7C59F</color>
+    <color name="card4">#B8D7F5</color>
+
+</resources>

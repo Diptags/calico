@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.profile.ProfileEditFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Upper Section -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/bannerBackground"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/profile_dummy" />
+
+            </RelativeLayout>
+
+            <!-- Down Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Profile Page Introdution -->
+                <TextView
+                    android:id="@+id/signin_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/profile_edit_intro"
+                    android:textSize="15sp" />
+
+                <!-- Full Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/profile_fullname_placeholder"
+                    app:boxBackgroundColor="@android:color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profileFullNameForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/icon_person"
+                        android:drawablePadding="10dp"
+                        android:inputType="text"
+                        android:text="@string/profile_form_placeholder" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Username -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/profile_username_placeholder"
+                    app:boxBackgroundColor="@android:color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profileUsernameForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/icon_username"
+                        android:drawablePadding="10dp"
+                        android:inputType="text"
+                        android:text="@string/profile_form_placeholder" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- E-mail Address -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/profile_email_placeholder"
+                    app:boxBackgroundColor="@android:color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profileEmailForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/icon_email"
+                        android:drawablePadding="10dp"
+                        android:inputType="textEmailAddress"
+                        android:text="@string/profile_form_placeholder" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Phone Number -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="@string/profile_phone_placeholder"
+                    app:boxBackgroundColor="@android:color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profilePhoneNumberForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/icon_phone"
+                        android:drawablePadding="10dp"
+                        android:inputType="number"
+                        android:text="@string/profile_form_placeholder" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Save Button -->
+                <Button
+                    android:id="@+id/profileUpdateButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/update_btn" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bottom_nav_food"
+        android:title="@string/menu_food"
+        app:cnb_backgroundColor="@color/food_background" />
+
+    <item
+        android:id="@+id/bottom_nav_beverage"
+        android:title="@string/menu_beverage"
+        app:cnb_backgroundColor="@color/beverage_background" />
+
+</menu>

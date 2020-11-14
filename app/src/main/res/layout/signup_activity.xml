@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".views.auth.SignUpActivity">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/signup_logo_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/logo_desc"
+        android:src="@drawable/logo_color" />
+
+    <!-- SignUp Title -->
+    <TextView
+        android:id="@+id/signup_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/greycliff_bold"
+        android:text="@string/signup_title"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <!-- SignUp Subtitle -->
+    <TextView
+        android:id="@+id/signup_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/greycliff_demibold"
+        android:text="@string/signup_subtitle"
+        android:textSize="15sp" />
+
+    <!-- Scrollable Form -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- SignUp Form -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <!-- Full Name Box -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_form_fullname"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/form_fullname">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Username Box -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_form_username"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/form_username">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- E-mail Box -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_form_email"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/form_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Phone Number Box -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_form_phone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/form_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password Box -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_form_password"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/form_password"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Sign Up Button -->
+                <Button
+                    android:id="@+id/sigup_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="signUpUser"
+                    android:text="@string/signup_button" />
+
+                <!-- Sign Up Button -->
+                <Button
+                    android:id="@+id/signin_button_onsignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="#0000"
+                    android:elevation="0dp"
+                    android:onClick="openSignInForm"
+                    android:text="@string/signin_button_onsignup"
+                    android:textAllCaps="false"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

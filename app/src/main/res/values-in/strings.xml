@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Data Umum -->
+    <string name="dummy_string">A Dummy Text</string>
+    <string name="logo_desc">Logo Calico</string>
+    <string name="change_btn">Ubah</string>
+    <string name="save_btn">Simpan</string>
+    <string name="update_btn">Perbarui</string>
+    <string name="connect_btn">hubungkan</string>
+    <string name="cancel_btn">Batal</string>
+    <string name="no_connection">Mohon hubungkan perangkat dengan internet untuk dapat menggunakan Calico</string>
+
+    <!-- Notifikasi -->
+    <string name="reminder_notification_title">Hari Baru, Inspirasi Baru</string>
+    <string name="reminder_notification_content">Calico akan membantu Anda mencari inspirasi memasak</string>
+
+    <!-- Perizinan -->
+    <string name="permission_granted">Terima kasih telah memberikan Calico izin</string>
+    <string name="permission_denied">Tidak apa - apa, Anda tetap bisa mengubah izin di pengaturan</string>
+
+    <!-- Form Autentikasi -->
+    <string name="auth_success">Berhasil! Selamat datang di Calico</string>
+    <string name="form_empty_error">Kolom ini harus diisi</string>
+    <string name="wrong_credentials_error">Informasi Salah or Akun Tidak Ditemukan</string>
+    <string name="username_length_error">Panjang maksimum 10 karakter</string>
+    <string name="email_format_error">Format e-mailsalah</string>
+    <string name="password_length_error">Panjang minimum 4 karakter</string>
+
+    <!-- Sign In Screen Information -->
+    <string name="signin_title">Selamat Datang</string>
+    <string name="signin_subtitle">Silakan masuk untuk melanjutkan</string>
+    <string name="form_username">Usermame</string>
+    <string name="form_password">Kata Sandi</string>
+    <string name="signin_button">Masuk</string>
+    <string name="signup_button_onsignin">Daftar Gratis Sekarang</string>
+
+    <!-- Informasi untuk Pendaftaran -->
+    <string name="signup_title">Selamat Datang</string>
+    <string name="signup_subtitle">Silakan mendaftar untuk melanjutkan</string>
+    <string name="form_fullname">Nama Lengkap</string>
+    <string name="form_email">Alamat E-mail</string>
+    <string name="form_phone">Nomor Telepon</string>
+    <string name="signup_button">Daftar</string>
+    <string name="signin_button_onsignup">Masuk dengan Akun Calico</string>
+
+    <!-- Informasi untuk Splash Screen -->
+    <string name="app_name">Calico</string>
+    <string name="logo_name">Calico</string>
+    <string name="app_slogan">Jurnal Memasak Di Genggaman Anda</string>
+    <string name="created_by">Pradipta Gitaya - 2020</string>
+
+    <!-- Informasi untuk Onboarding Screen -->
+
+    <!--Titles-->
+    <string name="first_slide_title">Selamat Datang</string>
+    <string name="second_slide_title">Jurnal Memasak Harian</string>
+    <string name="third_slide_title">Teknologi Terkini</string>
+    <string name="fourth_slide_title">Cobalah Calico Sekarang</string>
+
+    <!--Descriptions-->
+    <string name="image_desc">Placeholder Onboarding</string>
+    <string name="first_slide_desc">Calico adalah aplikasi sederhana yang hadir untuk membantu Anda mendokumentasikan hobi memasak dalam sebuah jurnal</string>
+    <string name="second_slide_desc">Dengan Calico, Anda dapat menyimpan aktivitas memasak kapanpun dan dimanapun Anda berada. Semua di genggaman Anda</string>
+    <string name="third_slide_desc">Calico hadir dengan teknologi terkini yang dapat meningkatkan pengalaman Anda dan membuat Anda nyaman</string>
+    <string name="fourth_slide_desc">Cobalah Calico sekarang dan dapatkan pengalaman baru yang belum pernah Anda temukan sebelumnya dimanapun</string>
+
+    <!--Buttons-->
+    <string name="skip_btn">Lewati</string>
+    <string name="prev_btn">Kembali</string>
+    <string name="next_btn">Berikut</string>
+    <string name="get_started_btn">Mulai</string>
+
+    <!-- Home Screen Information -->
+    <string name="intro">Mulai perjalanan memasak Anda sekarang</string>
+    <string name="dish_btn">Inspirasi</string>
+    <string name="journal_btn">Jurnal Anda</string>
+    <string name="profile_btn">Profil</string>
+
+    <!-- Profile Screen Information -->
+    <string name="profile_edit_intro">Anda dapat mengubah informasi profil di sini. Sentuh gambar di atas untuk mengganti foto profil</string>
+    <string name="profile_info_intro">Anda dapat melihat informasi profil di sini. Informasi bisa diubah jika Anda menginginkan</string>
+    <string name="profile_form_placeholder">Informasi Profil</string>
+    <string name="profile_fullname_placeholder">Nama Lengkap</string>
+    <string name="profile_username_placeholder">Username</string>
+    <string name="profile_email_placeholder">Alamat E-mail</string>
+    <string name="profile_phone_placeholder">Nomor Telepon</string>
+    <string name="profile_update_success">Profil berhasil diperbarui!</string>
+
+    <!-- Lain - Lain -->
+
+    <!-- Navigation Bar di Bawah -->
+    <string name="menu_food">Makanan</string>
+    <string name="menu_beverage">Minuman</string>
+
+    <!-- Fragments -->
+    <string name="fragment_journal">Jurnal Fragment</string>
+    <string name="fragment_profile">Profil Fragment</string>
+    <string name="fragment_other">Menu Lainnya Fragment</string>
+
+    <string name="fragment_food">Makanan Fragment</string>
+    <string name="fragment_beverage">Minuman Fragment</string>
+
+    <!-- BELUM DITRANSLATE KE INDO -->
+
+    <!-- Dashboard (Categories) -->
+    <string name="hotels">Hotels</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="shops">Shops</string>
+    <string name="banks">Banks</string>
+    <string name="airports">Airports</string>
+
+    <!-- Dashboard (Title & Descriptions) -->
+    <string name="featured_locations">All Featured Locations</string>
+    <string name="featured_locations_description">All the locations</string>
+    <string name="most_viewed">Most Viewed</string>
+    <string name="categories">Categories</string>
+    <string name="view_all">View All</string>
+    <string name="search_text">View All</string>
+
+</resources>

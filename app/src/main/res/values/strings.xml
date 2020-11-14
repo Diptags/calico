@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General Data -->
+    <string name="dummy_string">A Dummy Text</string>
+    <string name="logo_desc">Calico Logo</string>
+    <string name="change_btn">Change</string>
+    <string name="save_btn">Save</string>
+    <string name="update_btn">Update</string>
+    <string name="connect_btn">Connect</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="no_connection">Please connect to internet to get the best from Calico on your phone</string>
+
+    <!-- Notification -->
+    <string name="reminder_notification_title">New Day, New Inspiration</string>
+    <string name="reminder_notification_content">Calico can give you new cooking inspirations</string>
+
+
+    <!-- Permission -->
+    <string name="permission_granted">Thank you for granting Calico permission</string>
+    <string name="permission_denied">No worries, you can change permission on your phone settings</string>
+
+    <!-- Authentication Form -->
+    <string name="auth_success">Success! Welcome to Calico</string>
+    <string name="form_empty_error">Field cannot be empty</string>
+    <string name="wrong_credentials_error">Wrong Credentials or Account Does Not Exists</string>
+    <string name="username_length_error">Maximum length is 10 chars</string>
+    <string name="email_format_error">Invalid e-mail address format</string>
+    <string name="password_length_error">Minimum length is 4 chars</string>
+
+    <!-- Sign In Screen Information -->
+    <string name="signin_title">Welcome Back</string>
+    <string name="signin_subtitle">Please Sign In to Continue</string>
+    <string name="form_username">Usermame</string>
+    <string name="form_password">Password</string>
+    <string name="signin_button">Sign In</string>
+    <string name="signup_button_onsignin">Sign Up for Free Account</string>
+
+    <!-- Register Screen Information -->
+    <string name="signup_title">Welcome to Calico</string>
+    <string name="signup_subtitle">Please Register to Continue</string>
+    <string name="form_fullname">Full Name</string>
+    <string name="form_email">E-mail Address</string>
+    <string name="form_phone">Phone Number</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="signin_button_onsignup">Sign In With Calico Account</string>
+
+    <!-- Splash Screen Information -->
+    <string name="app_name">Calico</string>
+    <string name="logo_name">Calico</string>
+    <string name="app_slogan">Cooking Journal on Your Hand</string>
+    <string name="created_by">Pradipta Gitaya - 2020</string>
+
+    <!-- Onboarding Screen Information -->
+
+    <!--Titles-->
+    <string name="first_slide_title">Welcome</string>
+    <string name="second_slide_title">Daily Cooking Journal</string>
+    <string name="third_slide_title">Current Tech Stacks</string>
+    <string name="fourth_slide_title">Try Calico Now</string>
+
+    <!--Descriptions-->
+    <string name="image_desc">Placeholder Onboarding</string>
+    <string name="first_slide_desc">Calico is a simple application that helps you documenting your cooking hobby in as a cooking journal easier than you think</string>
+    <string name="second_slide_desc">With Calico, you can store all of your cooking activities whenever and wherever you are. All you can get in your hand</string>
+    <string name="third_slide_desc">Calico comes with current technology stacks that enhances your experiences and makes your life and hobby easier</string>
+    <string name="fourth_slide_desc">Try Calico now and get the new experiences that you never get before anywhere. Click start now to get started</string>
+
+    <!--Buttons-->
+    <string name="skip_btn">Skip</string>
+    <string name="prev_btn">Back</string>
+    <string name="next_btn">Next</string>
+    <string name="get_started_btn">Start</string>
+
+    <!-- Home Screen Information -->
+    <string name="intro">Start your cooking journey today</string>
+    <string name="dish_btn">Inspirations</string>
+    <string name="journal_btn">Your Journals</string>
+    <string name="profile_btn">Profile</string>
+
+    <!-- Profile Screen Information -->
+    <string name="profile_edit_intro">Here you can change your profile information. Touch image above to change your profile picture</string>
+    <string name="profile_info_intro">Here you see your profile information. You can change it wherever and whenever you want</string>
+    <string name="profile_form_placeholder">Profile Information</string>
+    <string name="profile_fullname_placeholder">Full Name</string>
+    <string name="profile_username_placeholder">Username</string>
+    <string name="profile_email_placeholder">E-mail Address</string>
+    <string name="profile_phone_placeholder">Phone Number</string>
+    <string name="profile_update_success">Profile updated successfully!</string>
+
+    <!-- Others -->
+
+    <!-- Bottom Navigation Bar -->
+    <string name="menu_food">Foods</string>
+    <string name="menu_beverage">Beverages</string>
+
+    <!-- Fragments -->
+    <string name="fragment_journal">Journal Fragment</string>
+    <string name="fragment_profile">Profile Fragment</string>
+    <string name="fragment_other">Other Menu Fragment</string>
+    <string name="fragment_food">Food Fragment</string>
+    <string name="fragment_beverage">Beverage Fragment</string>
+
+    <!-- MASIH DUMMY -->
+
+    <!-- Dashboard (Categories) -->
+    <string name="hotels">Hotels</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="shops">Shops</string>
+    <string name="banks">Banks</string>
+    <string name="airports">Airports</string>
+
+    <!-- Dashboard (Title & Descriptions) -->
+    <string name="featured_locations">All Featured Locations</string>
+    <string name="featured_locations_description">All the locations</string>
+    <string name="most_viewed">Most Viewed</string>
+    <string name="categories">Categories</string>
+    <string name="view_all">View All</string>
+    <string name="search_text">View All</string>
+
+</resources>

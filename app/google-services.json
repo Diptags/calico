@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "267986930895",
+    "firebase_url": "https://calico-1706043361.firebaseio.com",
+    "project_id": "calico-1706043361",
+    "storage_bucket": "calico-1706043361.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267986930895:android:f75658ce046ea38b8fbbba",
+        "android_client_info": {
+          "package_name": "id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267986930895-l9ggev8nl5slfjghhciusnorqkb51ajv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWjXP6o-gQpLgDKj1ia9ZlrLF9aJyVqkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267986930895-l9ggev8nl5slfjghhciusnorqkb51ajv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
