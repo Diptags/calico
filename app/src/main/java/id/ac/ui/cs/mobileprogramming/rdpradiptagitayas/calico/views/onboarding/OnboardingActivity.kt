@@ -3,12 +3,9 @@ package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.onboarding
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -19,10 +16,11 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.PERMISSION_ALL_CODE
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.auth.SignInActivity
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.auth.AuthActivity
 
-// Class ini akan digunakan untuk membuat antarmuka onboarding
+
 @Suppress("DEPRECATION", "UNUSED_PARAMETER")
 class OnboardingActivity : AppCompatActivity() {
 
@@ -45,14 +43,7 @@ class OnboardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
-        }
+        Helpers.enableFullScreen(this)
 
         askPermissions()
         setContentView(R.layout.onboarding_activity)
@@ -111,7 +102,7 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     fun start(view: View) {
-        startActivity(Intent(this, SignInActivity::class.java))
+        startActivity(Intent(this, AuthActivity::class.java))
         finish()
     }
 

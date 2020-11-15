@@ -24,7 +24,7 @@
     <string name="auth_success">Success! Welcome to Calico</string>
     <string name="form_empty_error">Field cannot be empty</string>
     <string name="wrong_credentials_error">Wrong Credentials or Account Does Not Exists</string>
-    <string name="username_length_error">Maximum length is 10 chars</string>
+    <string name="username_length_error">Maximum length is 20 chars</string>
     <string name="email_format_error">Invalid e-mail address format</string>
     <string name="password_length_error">Minimum length is 4 chars</string>
 
@@ -117,5 +117,8 @@
     <string name="categories">Categories</string>
     <string name="view_all">View All</string>
     <string name="search_text">View All</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

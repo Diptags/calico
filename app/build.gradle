@@ -44,13 +44,6 @@ android {
 
 dependencies {
 
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'com.google.firebase:firebase-database:19.5.1'
-    implementation 'com.google.firebase:firebase-auth:20.0.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
-    implementation 'androidx.wear:wear:1.1.0'
-
     def androidx_version = '1.1.0'
     compileOnly 'com.google.android.wearable:wearable:2.8.1'
     def retrofit_version = '2.9.0'
@@ -71,6 +64,10 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$androidx_version"
     implementation "androidx.cardview:cardview:$first_stable_version"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
 
     // Android Lifecycle Extensions
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'

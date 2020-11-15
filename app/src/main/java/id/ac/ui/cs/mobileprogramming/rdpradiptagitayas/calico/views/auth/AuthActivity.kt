@@ -1,28 +1,26 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.intro
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.auth
 
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
 
-class IntroActivity : AppCompatActivity() {
+class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.auth_activity)
 
         Helpers.enableFullScreen(this)
 
         if (savedInstanceState == null) {
-            openIntroFragment()
+            openAuthSignInFragment()
         }
     }
 
-    private fun openIntroFragment() {
+    private fun openAuthSignInFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.intro_container, IntroFragment())
+            .replace(R.id.auth_container, AuthSignInFragment())
             .commit()
     }
 }

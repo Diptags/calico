@@ -23,7 +23,7 @@
     <string name="auth_success">Berhasil! Selamat datang di Calico</string>
     <string name="form_empty_error">Kolom ini harus diisi</string>
     <string name="wrong_credentials_error">Informasi Salah or Akun Tidak Ditemukan</string>
-    <string name="username_length_error">Panjang maksimum 10 karakter</string>
+    <string name="username_length_error">Panjang maksimum 20 karakter</string>
     <string name="email_format_error">Format e-mailsalah</string>
     <string name="password_length_error">Panjang minimum 4 karakter</string>
 

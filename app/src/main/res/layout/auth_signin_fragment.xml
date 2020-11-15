@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/signin_logo_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/logo_desc"
+        android:src="@drawable/logo_color" />
+
+    <!-- SignIn Title -->
+    <TextView
+        android:id="@+id/signin_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/greycliff_bold"
+        android:text="@string/signin_title"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <!-- SignIn Subtitle -->
+    <TextView
+        android:id="@+id/signin_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/greycliff_demibold"
+        android:text="@string/signin_subtitle"
+        android:textSize="15sp" />
+
+    <!-- Username Box -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signin_form_username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_username">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password Box -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signin_form_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_password"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Sign In Button -->
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/signin_button" />
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/signUpButtonOnsignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="#0000"
+        android:elevation="0dp"
+        android:text="@string/signup_button_onsignin"
+        android:textAllCaps="false"
+        android:textColor="#000" />
+
+</LinearLayout>

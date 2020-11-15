@@ -15,7 +15,7 @@ import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.DATABASE_NAM
 
 @Database(
     entities = [Dish::class, Journal::class, User::class],
-    version = 6,
+    version = 1,
     exportSchema = false
 )
 abstract class ApplicationDatabase : RoomDatabase() {

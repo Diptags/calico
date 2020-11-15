@@ -9,6 +9,8 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Environment
 import android.provider.Settings
+import android.view.WindowInsets
+import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.receivers.ReminderReceiver
@@ -20,6 +22,17 @@ import java.util.*
 class Helpers {
 
     companion object {
+
+        fun enableFullScreen(activity: Activity) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                activity.window.insetsController?.hide(WindowInsets.Type.statusBars())
+            } else {
+                activity.window.setFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN
+                )
+            }
+        }
 
         fun createImageFile(context: Context, fileName: String): File {
             val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
@@ -78,7 +91,7 @@ class Helpers {
 
             calendar.set(Calendar.SECOND, 0)
             calendar.set(Calendar.MINUTE, 0)
-            calendar.set(Calendar.HOUR, 6)
+            calendar.set(Calendar.HOUR, 0)
             calendar.set(Calendar.AM_PM, Calendar.AM)
             calendar.add(Calendar.DAY_OF_MONTH, 1)
 
