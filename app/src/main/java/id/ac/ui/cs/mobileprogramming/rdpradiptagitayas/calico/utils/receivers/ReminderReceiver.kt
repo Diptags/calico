@@ -19,11 +19,15 @@ class ReminderReceiver : BroadcastReceiver() {
         val notificationLargeIcon =
             BitmapFactory.decodeResource(context.resources, R.drawable.logo_color)
 
-        val myIntent = Intent(context, HomeActivity::class.java)
-        myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
+        val notificationIntent = Intent(context, HomeActivity::class.java)
+        notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
-        val notificationBuilder = NotificationCompat.Builder(context, GENERAL_NOTIFICATION_CHANNEL_ID).apply {
+        val pendingIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0)
+
+        val notificationBuilder = NotificationCompat.Builder(
+            context,
+            GENERAL_NOTIFICATION_CHANNEL_ID
+        ).apply {
             setSmallIcon(R.drawable.logo_color)
             setLargeIcon(notificationLargeIcon)
             setContentIntent(pendingIntent)

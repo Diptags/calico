@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import android.widget.Toast
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers.Companion.showConnectionErrorDialog
 
 @Suppress("DEPRECATION")
@@ -14,10 +13,7 @@ class NetworkChangeReceiver : BroadcastReceiver() {
     @SuppressLint("UnsafeProtectedBroadcastReceiver")
     override fun onReceive(context: Context, intent: Intent?) {
         try {
-            if (isOnline(context)) {
-                Toast.makeText(context, "Connected", Toast.LENGTH_LONG).show()
-
-            } else {
+            if (!isOnline(context)) {
                 showConnectionErrorDialog(context)
             }
         } catch (e: NullPointerException) {
