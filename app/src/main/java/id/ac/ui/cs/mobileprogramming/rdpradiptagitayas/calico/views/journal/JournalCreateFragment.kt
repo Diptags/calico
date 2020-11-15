@@ -8,13 +8,12 @@ import android.view.ViewGroup
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 
 
-class JournalFragment : Fragment() {
+class JournalCreateFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.journal_fragment, container, false)
+        return inflater.inflate(R.layout.journal_create_fragment, container, false)
     }
 }

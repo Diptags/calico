@@ -1,10 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
@@ -21,7 +18,7 @@ class JournalActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.journal_container, JournalFragment()).commit()
+                .replace(R.id.journal_container, JournalListFragment()).commit()
         }
     }
 

@@ -39,7 +39,7 @@ class ProfileInfoFragment : Fragment() {
         getSignedInUser()
 
         profileChangeButton.setOnClickListener {
-            chageFragmentToProfileEditFragment()
+            changeFragmentToProfileEditFragment()
         }
     }
 
@@ -62,20 +62,21 @@ class ProfileInfoFragment : Fragment() {
             userViewModel.getSignedInUser(requireContext(), username)
                 ?.observe(requireActivity(), Observer {
                     try {
-                        profileFullName.text = it.name
-                        profileUsername.text = it.username
-                        profileFullNameData.text = it.name
-                        profileUsernameData.text = it.username
-                        profileEmailData.text = it.email
-                        profilePhoneNumberData.text = it.phoneNo
-                    } catch (e: IllegalStateException ) {
-
+                        if (it != null) {
+                            profileFullName?.text = it.name
+                            profileUsername?.text = it.username
+                            profileFullNameData?.text = it.name
+                            profileUsernameData?.text = it.username
+                            profileEmailData?.text = it.email
+                            profilePhoneNumberData?.text = it.phoneNo
+                        }
+                    } catch (e: IllegalStateException) {
                     }
                 })
         }
     }
 
-    private fun chageFragmentToProfileEditFragment() {
+    private fun changeFragmentToProfileEditFragment() {
         val nextFragment = ProfileEditFragment()
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.profile_container, nextFragment)
