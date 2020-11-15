@@ -12,15 +12,15 @@ data class Dish(
     val dishId: Long = 0,
 
     @ColumnInfo(name = "name")
-    val name: String?,
+    val name: String,
 
     @ColumnInfo(name = "type")
-    val type: String?,
+    val type: String,
 
     @ColumnInfo(name = "imageUrl")
-    val imageUrl: String?,
+    val imageUrl: String,
 
     @ColumnInfo(name = "desc")
-    val desc: String?
+    val desc: String
 
 )

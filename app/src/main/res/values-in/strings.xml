@@ -77,6 +77,10 @@
     <string name="journal_btn">Jurnal Anda</string>
     <string name="profile_btn">Profil</string>
 
+    <!-- Journal Screen Information -->
+    <string name="journal_info_title">Jurnal Anda</string>
+    <string name="journal_info_intro">Semua jurnal memasak Anda ditampilkan disini</string>
+
     <!-- Profile Screen Information -->
     <string name="profile_edit_intro">Anda dapat mengubah informasi profil di sini. Sentuh gambar di atas untuk mengganti foto profil</string>
     <string name="profile_info_intro">Anda dapat melihat informasi profil di sini. Informasi bisa diubah jika Anda menginginkan</string>

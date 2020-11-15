@@ -78,6 +78,10 @@
     <string name="journal_btn">Your Journals</string>
     <string name="profile_btn">Profile</string>
 
+    <!-- Journal Screen Information -->
+    <string name="journal_info_title">Your Journals</string>
+    <string name="journal_info_intro">All of your journals will be shown here</string>
+
     <!-- Profile Screen Information -->
     <string name="profile_edit_intro">Here you can change your profile information. Touch image above to change your profile picture</string>
     <string name="profile_info_intro">Here you see your profile information. You can change it wherever and whenever you want</string>

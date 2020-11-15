@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.persistences.daos
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.daos
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

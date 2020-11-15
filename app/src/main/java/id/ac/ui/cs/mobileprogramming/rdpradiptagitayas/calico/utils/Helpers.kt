@@ -93,7 +93,6 @@ class Helpers {
             calendar.set(Calendar.MINUTE, 0)
             calendar.set(Calendar.HOUR, 0)
             calendar.set(Calendar.AM_PM, Calendar.AM)
-            calendar.add(Calendar.DAY_OF_MONTH, 1)
 
             val myIntent = Intent(context, ReminderReceiver::class.java)
             pendingIntent = PendingIntent.getBroadcast(context, 0, myIntent, 0)

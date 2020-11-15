@@ -12,7 +12,15 @@ class UserViewModel : ViewModel() {
     private var userLiveData: LiveData<User>? = null
 
     fun insertSignUpDetails(context: Context, userData: HashMap<String, String>) {
-        UserRepository.addUser(context, userData)
+        val user = User(
+            UserRepository.generateUuid(),
+            userData["name"].toString(),
+            userData["username"].toString(),
+            userData["email"].toString(),
+            userData["phoneNo"].toString(),
+            userData["password"].toString()
+        )
+        UserRepository.addUser(context, user)
     }
 
     fun insertSignInDetails(context: Context, username: String, password: String): Boolean {

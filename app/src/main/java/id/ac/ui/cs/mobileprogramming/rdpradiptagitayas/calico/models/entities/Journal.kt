@@ -11,13 +11,13 @@ data class Journal(
     @ColumnInfo(name = "journalId")
     val journalId: Long = 0,
 
-    @ColumnInfo(name = "userCreatorId")
-    val userCreatorId: Long,
-
     @ColumnInfo(name = "title")
-    val title: String?,
+    val title: String,
+
+    @ColumnInfo(name = "type")
+    val type: String,
 
     @ColumnInfo(name = "content")
-    val content: String?
+    val content: String
 
 )

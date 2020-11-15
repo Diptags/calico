@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.persistences
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models
 
 import android.content.Context
 import androidx.room.Database
@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.Dish
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.Journal
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.User
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.persistences.daos.DishDAO
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.persistences.daos.JournalDAO
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.persistences.daos.UserDAO
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.daos.DishDAO
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.daos.JournalDAO
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.daos.UserDAO
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.DATABASE_NAME
 
 
