@@ -22,8 +22,8 @@
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/profile_dummy"
-                android:contentDescription="@string/logo_desc" />
+                android:contentDescription="@string/logo_desc"
+                android:src="@drawable/profile_dummy" />
 
         </RelativeLayout>
 

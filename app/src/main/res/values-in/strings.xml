@@ -2,8 +2,8 @@
 <resources>
 
     <!-- Data Umum -->
-    <string name="dummy_string">A Dummy Text</string>
-    <string name="logo_desc">Logo Calico</string>
+    <string name="dummy_string">Teks Dummy</string>
+    <string name="logo_desc">Gambar Dummy</string>
     <string name="change_btn">Ubah</string>
     <string name="save_btn">Simpan</string>
     <string name="update_btn">Perbarui</string>
@@ -80,6 +80,9 @@
     <!-- Journal Screen Information -->
     <string name="journal_info_title">Jurnal Anda</string>
     <string name="journal_info_intro">Semua jurnal memasak Anda ditampilkan disini</string>
+    <string name="journal_card_title_placeholder">Judul Jurnal</string>
+    <string name="journal_card_summary_placeholder">Deskripsi singkat jurnal</string>
+    <string name="journal_empty">Ayo buat jurnal memasak pertama Anda sekarang</string>
 
     <!-- Profile Screen Information -->
     <string name="profile_edit_intro">Anda dapat mengubah informasi profil di sini. Sentuh gambar di atas untuk mengganti foto profil</string>

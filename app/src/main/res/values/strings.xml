@@ -3,7 +3,7 @@
 
     <!-- General Data -->
     <string name="dummy_string">A Dummy Text</string>
-    <string name="logo_desc">Calico Logo</string>
+    <string name="logo_desc">A Dummy Image</string>
     <string name="change_btn">Change</string>
     <string name="save_btn">Save</string>
     <string name="update_btn">Update</string>
@@ -81,6 +81,9 @@
     <!-- Journal Screen Information -->
     <string name="journal_info_title">Your Journals</string>
     <string name="journal_info_intro">All of your journals will be shown here</string>
+    <string name="journal_card_title_placeholder">Journal Title</string>
+    <string name="journal_card_summary_placeholder">Journal short description</string>
+    <string name="journal_empty">Lets create your first cooking journal now</string>
 
     <!-- Profile Screen Information -->
     <string name="profile_edit_intro">Here you can change your profile information. Touch image above to change your profile picture</string>
