@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.JournalViewModel
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.JournalAdapter
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.create.JournalCreateFragment
 import kotlinx.android.synthetic.main.journal_list_fragment.*
-import kotlinx.android.synthetic.main.journal_list_fragment.profileFullName
-import kotlinx.android.synthetic.main.journal_list_fragment.profileUsername
-import kotlinx.android.synthetic.main.profile_info_fragment.*
 
 
 class JournalListFragment : Fragment() {
@@ -41,12 +40,16 @@ class JournalListFragment : Fragment() {
 
     private fun getJournals() {
         journalViewModel.getAllJournal(requireContext())?.observe(requireActivity(), Observer {
-            val journalAdapter = JournalAdapter()
-            journalAdapter.journalList = it
-            val journalRecyclerView: RecyclerView? = view?.findViewById(R.id.journal_recycler)
-            journalRecyclerView?.adapter = journalAdapter
-            journalRecyclerView?.layoutManager = LinearLayoutManager(context)
 
+            if (it.isNotEmpty()) {
+                val journalAdapter = JournalAdapter()
+                journalAdapter.journalList = it
+                val journalRecyclerView: RecyclerView? = view?.findViewById(R.id.journal_recycler)
+                journalRecyclerView?.adapter = journalAdapter
+                journalRecyclerView?.layoutManager = LinearLayoutManager(context)
+
+                journal_list_empty_placeholder.visibility = View.GONE
+            }
         })
     }
 

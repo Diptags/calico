@@ -1,9 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home
 
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
@@ -25,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.home_activity)
 
         if (savedInstanceState == null) {
-            openHomeFragment()
+            changeFragmentToHomeFragment()
         }
     }
 
@@ -38,9 +35,10 @@ class HomeActivity : AppCompatActivity() {
         )
     }
 
-    private fun openHomeFragment() {
+    private fun changeFragmentToHomeFragment() {
+        val nextFragment = HomeFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.home_container, HomeFragment())
+            .replace(R.id.home_container, nextFragment)
             .commit()
     }
 }

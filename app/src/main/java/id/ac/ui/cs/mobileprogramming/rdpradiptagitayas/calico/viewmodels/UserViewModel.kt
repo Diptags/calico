@@ -1,7 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels
 
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.User
@@ -11,7 +10,7 @@ class UserViewModel : ViewModel() {
 
     private var userLiveData: LiveData<User>? = null
 
-    fun insertSignUpDetails(context: Context, userData: HashMap<String, String>) {
+    fun addUser(context: Context, userData: HashMap<String, String>) {
         val user = User(
             UserRepository.generateUuid(),
             userData["name"].toString(),
@@ -23,7 +22,7 @@ class UserViewModel : ViewModel() {
         UserRepository.addUser(context, user)
     }
 
-    fun insertSignInDetails(context: Context, username: String, password: String): Boolean {
+    fun checkIsUserRegistered(context: Context, username: String, password: String): Boolean {
         userLiveData = UserRepository.getUserByUsername(context, username)
         if (userLiveData?.value?.password == password) {
             return true
@@ -31,11 +30,11 @@ class UserViewModel : ViewModel() {
         return false
     }
 
-    fun getSignedInUser(context: Context, username: String): LiveData<User>? {
+    fun getUserByUsername(context: Context, username: String): LiveData<User>? {
         return UserRepository.getUserByUsername(context, username)
     }
 
-    fun updateUserInformation(context: Context, user: User) {
+    fun updateUser(context: Context, user: User) {
         UserRepository.updateUser(context, user)
     }
 

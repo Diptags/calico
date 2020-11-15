@@ -27,11 +27,8 @@ class CategoriesAdapter(categoryNames: ArrayList<CategoriesHelperClass>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
-        val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_categories_design, parent, false)
-        return CategoriesViewHolder(
-            view
-        )
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.card_categories_design, parent, false)
+        return CategoriesViewHolder(view)
     }
 
     override fun getItemCount(): Int {

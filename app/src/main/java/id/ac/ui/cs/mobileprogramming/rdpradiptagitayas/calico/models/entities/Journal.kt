@@ -17,6 +17,9 @@ data class Journal(
     @ColumnInfo(name = "type")
     val type: String,
 
+    @ColumnInfo(name = "summary")
+    val summary: String,
+
     @ColumnInfo(name = "content")
     val content: String
 

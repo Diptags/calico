@@ -1,11 +1,8 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.dish
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.WindowInsets
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
@@ -27,17 +24,21 @@ class DishActivity : AppCompatActivity() {
         Helpers.enableFullScreen(this)
         setContentView(R.layout.dish_activity)
 
-        // Hooks
         chipNavigationBar = findViewById(R.id.bottom_nav_menu)
         chipNavigationBar!!.setItemSelected(R.id.bottom_nav_food, true)
 
-        // Transaction for Fragment
-        supportFragmentManager.beginTransaction()
-            .replace(
-                R.id.dish_fragment_container,
-                DishFoodFragment()
-            ).commit()
+        if (savedInstanceState == null) {
+            changeFragmentToDishFoodFragment()
+        }
+
         bottomNavbarMenu()
+    }
+
+    private fun changeFragmentToDishFoodFragment() {
+        val nextFragment = DishFoodFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.dish_fragment_container, nextFragment)
+            .commit()
     }
 
     private fun bottomNavbarMenu() {

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home.HomeActivity
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.list.JournalListFragment
 
 
 class JournalActivity : AppCompatActivity() {
@@ -13,13 +14,18 @@ class JournalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         Helpers.enableFullScreen(this)
-
         setContentView(R.layout.journal_activity)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.journal_container, JournalListFragment()).commit()
+            changeFragmentToJournalListFragment()
         }
+    }
+
+    private fun changeFragmentToJournalListFragment() {
+        val nextFragment = JournalListFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.journal_container, nextFragment)
+            .commit()
     }
 
     override fun onBackPressed() {

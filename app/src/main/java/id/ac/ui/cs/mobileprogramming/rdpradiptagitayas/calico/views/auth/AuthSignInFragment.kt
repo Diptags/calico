@@ -104,7 +104,7 @@ class AuthSignInFragment : Fragment() {
 
         if (isSignInFormValid()) {
 
-            if (userViewModel.insertSignInDetails(requireContext(), username, password)) {
+            if (userViewModel.checkIsUserRegistered(requireContext(), username, password)) {
                 Preferences.saveCredentials(sharedPreferences, username, password)
 
                 Toast.makeText(

@@ -171,7 +171,7 @@ class AuthSignUpFragment : Fragment() {
         if (isSignUpFormValid()) {
 
             val userData = prepareUserData()
-            userViewModel.insertSignUpDetails(requireContext(), userData)
+            userViewModel.addUser(requireContext(), userData)
 
             Toast.makeText(
                 requireContext(),

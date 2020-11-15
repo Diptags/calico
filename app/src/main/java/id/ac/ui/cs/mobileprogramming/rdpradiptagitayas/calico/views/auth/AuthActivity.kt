@@ -19,8 +19,9 @@ class AuthActivity : AppCompatActivity() {
     }
 
     private fun openAuthSignInFragment() {
+        val nextFragment = AuthSignInFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.auth_container, AuthSignInFragment())
+            .replace(R.id.auth_container, nextFragment)
             .commit()
     }
 }

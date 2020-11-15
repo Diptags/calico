@@ -1,10 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.profile
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.view.WindowInsets
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
@@ -16,12 +13,10 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         Helpers.enableFullScreen(this)
-
         setContentView(R.layout.profile_activity)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.profile_container, ProfileInfoFragment()).commit()
+            changeFragmentToProfileInfoFragment()
         }
     }
 
@@ -36,4 +31,10 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    private fun changeFragmentToProfileInfoFragment() {
+        val nextFragment = ProfileInfoFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.profile_container, nextFragment)
+            .commit()
+    }
 }

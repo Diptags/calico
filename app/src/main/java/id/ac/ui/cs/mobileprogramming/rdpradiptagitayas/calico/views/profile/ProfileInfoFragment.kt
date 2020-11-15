@@ -59,7 +59,7 @@ class ProfileInfoFragment : Fragment() {
         val username: String? = Preferences.getSignedInUser(sharedPreferences)
 
         if (username != null) {
-            userViewModel.getSignedInUser(requireContext(), username)
+            userViewModel.getUserByUsername(requireContext(), username)
                 ?.observe(requireActivity(), Observer {
                     try {
                         if (it != null) {

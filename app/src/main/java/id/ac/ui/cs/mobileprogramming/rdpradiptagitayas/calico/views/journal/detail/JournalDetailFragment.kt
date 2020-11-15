@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -22,7 +22,7 @@ class JournalRepository {
             AddJournalAsync().execute(journal)
         }
 
-        fun getAllJournals(context: Context): LiveData<List<Journal>>? {
+        fun getAllJournal(context: Context): LiveData<List<Journal>>? {
             applicationDatabase = initializeDB(context)
             return applicationDatabase!!.journalDao().getAllJournal()
         }

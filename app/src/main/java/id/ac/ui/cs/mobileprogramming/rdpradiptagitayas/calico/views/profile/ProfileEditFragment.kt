@@ -87,7 +87,7 @@ class ProfileEditFragment : Fragment() {
         val username: String? = Preferences.getSignedInUser(sharedPreferences)
 
         if (username != null) {
-            userViewModel.getSignedInUser(requireContext(), username)
+            userViewModel.getUserByUsername(requireContext(), username)
                 ?.observe(requireActivity(), Observer {
                     if (it != null) {
                         signedInUser = it
@@ -162,7 +162,7 @@ class ProfileEditFragment : Fragment() {
             formPhoneNo?.text.toString(),
             signedInUser!!.password
         )
-        userViewModel.updateUserInformation(requireContext(), updatedUserProfile)
+        userViewModel.updateUser(requireContext(), updatedUserProfile)
 
         val sharedPreferences : SharedPreferences =
             requireContext().getSharedPreferences("calico", AppCompatActivity.MODE_PRIVATE)
