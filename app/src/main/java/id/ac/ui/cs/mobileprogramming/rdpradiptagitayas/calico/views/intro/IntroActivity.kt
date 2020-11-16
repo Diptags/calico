@@ -3,14 +3,14 @@ package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.intro
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
 
 class IntroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Helpers.enableFullScreen(this)
+        GeneralHelper.enableFullScreen(this)
         setContentView(R.layout.intro_activity)
 
         if (savedInstanceState == null) {

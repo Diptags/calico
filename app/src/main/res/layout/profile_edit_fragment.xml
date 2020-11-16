@@ -70,7 +70,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/profile_username_placeholder"
-                app:boxBackgroundColor="@color/homeBackground">
+                app:boxBackgroundColor="@color/homeBackground"
+                app:counterEnabled="true"
+                app:counterMaxLength="20">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/profileUsernameForm"

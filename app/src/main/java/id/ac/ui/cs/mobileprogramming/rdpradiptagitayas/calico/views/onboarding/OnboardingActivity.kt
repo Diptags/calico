@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.PERMISSION_ALL_CODE
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.auth.AuthActivity
 
@@ -43,7 +43,7 @@ class OnboardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Helpers.enableFullScreen(this)
+        GeneralHelper.enableFullScreen(this)
 
         askPermissions()
         setContentView(R.layout.onboarding_activity)

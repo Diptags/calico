@@ -10,6 +10,8 @@
     <string name="connect_btn">Connect</string>
     <string name="cancel_btn">Cancel</string>
     <string name="no_connection">Please connect to internet to get the best from Calico on your phone</string>
+    <string name="form_max_length_error">Text is too long</string>
+    <string name="form_min_length_error">Text is too short</string>
 
     <!-- Notification -->
     <string name="reminder_notification_title">New Day, New Inspiration</string>
@@ -25,9 +27,7 @@
     <string name="auth_success">Success! Welcome to Calico</string>
     <string name="form_empty_error">Field cannot be empty</string>
     <string name="wrong_credentials_error">Wrong Credentials or Account Does Not Exists</string>
-    <string name="username_length_error">Maximum length is 20 chars</string>
     <string name="email_format_error">Invalid e-mail address format</string>
-    <string name="password_length_error">Minimum length is 4 chars</string>
 
     <!-- Sign In Screen Information -->
     <string name="signin_title">Welcome Back</string>
@@ -80,11 +80,21 @@
     <string name="profile_btn">Profile</string>
 
     <!-- Journal Screen Information -->
+    <string name="journal_button_add">New Journal</string>
     <string name="journal_info_title">Your Journals</string>
     <string name="journal_info_intro">All of your journals will be shown here</string>
     <string name="journal_card_title_placeholder">Journal Title</string>
     <string name="journal_card_summary_placeholder">Journal short description</string>
-    <string name="journal_empty">Lets create your first cooking journal now</string>
+    <string name="journal_empty">You can create your first cooking journal now</string>
+    <string name="journal_create_intro">Here you can create your cooking journal. Touch image above to add a photo to your journal</string>
+    <string name="journal_form_placeholder">Write Here</string>
+    <string name="journal_title_placeholder">Journal Title</string>
+    <string name="journal_type_placeholder">Dish Type</string>
+    <string name="journal_summary_placeholder">Small Notes</string>
+    <string name="journal_description_placeholder">Journal Description</string>
+    <string name="journal_create_success">Journal successfully created!</string>
+    <string name="journal_food_radio_button_placeholder">Food or Snacks</string>
+    <string name="journal_beverage_radio_button_placeholder">Drinks</string>
 
     <!-- Profile Screen Information -->
     <string name="profile_edit_intro">Here you can change your profile information. Touch image above to change your profile picture</string>

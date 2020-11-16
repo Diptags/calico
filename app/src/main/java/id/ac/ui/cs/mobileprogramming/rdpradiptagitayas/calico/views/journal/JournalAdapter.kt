@@ -1,17 +1,21 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.Journal
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home.HomeActivity
 
 
-class JournalAdapter : RecyclerView.Adapter<JournalAdapter.JournalViewHolder>() {
+class JournalAdapter(var journalListFragment: JournalListFragment) :
+    RecyclerView.Adapter<JournalAdapter.JournalViewHolder>() {
 
     var journalList: List<Journal>? = null
 
@@ -19,6 +23,7 @@ class JournalAdapter : RecyclerView.Adapter<JournalAdapter.JournalViewHolder>() 
         var cardImage: ImageView = itemView.findViewById(R.id.journal_card_image)
         var cardTitle: TextView = itemView.findViewById(R.id.journal_card_title)
         var cardSummary: TextView = itemView.findViewById(R.id.journal_card_summary)
+        var parentLayout: CardView = itemView.findViewById(R.id.journalCard)
     }
 
     override fun onCreateViewHolder(
@@ -38,6 +43,12 @@ class JournalAdapter : RecyclerView.Adapter<JournalAdapter.JournalViewHolder>() 
 
             if (journal.type == "food") holder.cardImage.setImageResource(R.drawable.food)
             else holder.cardImage.setImageResource(R.drawable.beverage)
+
+            holder.parentLayout.setOnClickListener {
+                val intent = Intent(journalListFragment.context, HomeActivity::class.java)
+                intent.putExtra("id", journal.journalId)
+                journalListFragment.startActivity(intent)
+            }
         }
     }
 

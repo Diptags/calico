@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.GENERAL_NOTIFICATION_CHANNEL_ID
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.NOTIFICATION_CODE
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Preferences
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
@@ -27,16 +27,14 @@ import kotlinx.android.synthetic.main.auth_signup_fragment.*
 
 class AuthSignUpFragment : Fragment() {
 
-    // Variables
+    lateinit var userViewModel: UserViewModel
+
     private var formName: TextInputLayout? = null
     private var formUsername: TextInputLayout? = null
     private var formEmail: TextInputLayout? = null
     private var formPhoneNo: TextInputLayout? = null
     private var formPassword: TextInputLayout? = null
     private var sharedPreferences: SharedPreferences? = null
-
-    // ViewModel
-    lateinit var userViewModel: UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -97,7 +95,7 @@ class AuthSignUpFragment : Fragment() {
             false
         } else if (value.length >= 20) {
             formUsername?.error =
-                requireContext().resources.getString(R.string.username_length_error)
+                requireContext().resources.getString(R.string.form_max_length_error)
             false
         } else {
             formUsername?.error = null
@@ -144,7 +142,7 @@ class AuthSignUpFragment : Fragment() {
             false
         } else if (value.length < 4) {
             formPassword?.error =
-                requireContext().resources.getString(R.string.password_length_error)
+                requireContext().resources.getString(R.string.form_min_length_error)
             false
         } else {
             formPassword?.error = null
@@ -157,7 +155,7 @@ class AuthSignUpFragment : Fragment() {
         return (validateName() or validateUsername() or validateEmail() or validatePhoneNo() or validatePassword())
     }
 
-    private fun prepareUserData(): HashMap<String, String> {
+    private fun compileUserData(): HashMap<String, String> {
         val userData = HashMap<String, String>()
         userData["name"] = formName?.editText!!.text.toString()
         userData["username"] = formUsername?.editText!!.text.toString()
@@ -177,7 +175,7 @@ class AuthSignUpFragment : Fragment() {
 
         if (isSignUpFormValid()) {
 
-            val userData = prepareUserData()
+            val userData = compileUserData()
             userViewModel.addUser(requireContext(), userData)
 
             Toast.makeText(
@@ -200,7 +198,7 @@ class AuthSignUpFragment : Fragment() {
 
     private fun showWelcomeNotification() {
         val context = requireContext()
-        val pendingIntent: PendingIntent = Helpers.prepareNotificationIntent(context)
+        val pendingIntent: PendingIntent = GeneralHelper.prepareNotificationIntent(context)
         val notificationLargeIcon =
             BitmapFactory.decodeResource(context.resources, R.drawable.logo_color)
 

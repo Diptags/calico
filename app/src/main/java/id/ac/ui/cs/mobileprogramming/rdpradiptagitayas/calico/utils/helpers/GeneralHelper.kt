@@ -1,11 +1,10 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers
 
 import android.app.*
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Environment
@@ -20,7 +19,7 @@ import java.io.File
 import java.util.*
 
 @Suppress("DEPRECATION")
-class Helpers {
+class GeneralHelper {
 
     companion object {
 
@@ -108,7 +107,8 @@ class Helpers {
 
         fun prepareNotificationIntent(context: Context): PendingIntent {
             val notificationIntent = Intent(context, HomeActivity::class.java)
-            notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            notificationIntent.flags =
+                Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             return PendingIntent.getActivity(context, 0, notificationIntent, 0)
         }
     }

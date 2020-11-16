@@ -7,7 +7,7 @@ import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.GENERAL_NOTIFICATION_CHANNEL_DESC
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.GENERAL_NOTIFICATION_CHANNEL_ID
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.GENERAL_NOTIFICATION_CHANNEL_NAME
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
 
 
 class HomeActivity : AppCompatActivity() {
@@ -15,8 +15,8 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Helpers.enableFullScreen(this)
-        Helpers.scheduleDailyReminder(this)
+        GeneralHelper.enableFullScreen(this)
+        GeneralHelper.scheduleDailyReminder(this)
 
         initReminderNotificationChannel()
         setContentView(R.layout.home_activity)
@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initReminderNotificationChannel() {
-        Helpers.createNotificationChannel(
+        GeneralHelper.createNotificationChannel(
             this,
             NotificationManagerCompat.IMPORTANCE_DEFAULT, false,
             GENERAL_NOTIFICATION_CHANNEL_ID, GENERAL_NOTIFICATION_CHANNEL_NAME,

@@ -3,7 +3,7 @@ package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.auth
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
 
 class AuthActivity : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.auth_activity)
 
-        Helpers.enableFullScreen(this)
+        GeneralHelper.enableFullScreen(this)
 
         if (savedInstanceState == null) {
             openAuthSignInFragment()

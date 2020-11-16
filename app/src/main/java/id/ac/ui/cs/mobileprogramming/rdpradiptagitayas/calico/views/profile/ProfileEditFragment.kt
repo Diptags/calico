@@ -15,12 +15,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputEditText
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.User
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.*
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
 import kotlinx.android.synthetic.main.profile_edit_fragment.*
 import java.io.File
@@ -31,7 +31,6 @@ class ProfileEditFragment : Fragment() {
 
     lateinit var userViewModel: UserViewModel
 
-    // Editing Form
     private var formFullName: TextInputEditText? = null
     private var formUsername: TextInputEditText? = null
     private var formEmail: TextInputEditText? = null
@@ -72,7 +71,7 @@ class ProfileEditFragment : Fragment() {
     }
 
     private fun showProfileImage() {
-        val profileImageFile: File = Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
+        val profileImageFile: File = GeneralHelper.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
         if (profileImageFile.exists()) {
             val myBitmap = BitmapFactory.decodeFile(profileImageFile.absolutePath)
             profileImage.setImageBitmap(myBitmap)
@@ -88,7 +87,7 @@ class ProfileEditFragment : Fragment() {
 
         if (username != null) {
             userViewModel.getUserByUsername(requireContext(), username)
-                ?.observe(requireActivity(), Observer {
+                ?.observe(requireActivity(), {
                     if (it != null) {
                         signedInUser = it
                         formFullName?.setText(it.name)
@@ -111,7 +110,7 @@ class ProfileEditFragment : Fragment() {
     private fun getProfileImageFile() {
 
         val photoFile = try {
-            Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
+            GeneralHelper.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
         } catch (e: IOException) {
             e.printStackTrace()
             return
@@ -146,9 +145,9 @@ class ProfileEditFragment : Fragment() {
     }
 
     private fun renameTemporaryProfileImage(): Boolean {
-        Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
+        GeneralHelper.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
             .renameTo(
-                Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
+                GeneralHelper.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
             )
         return true
     }
@@ -180,7 +179,7 @@ class ProfileEditFragment : Fragment() {
             if (resultCode == Activity.RESULT_OK) {
                 profileImage.setImageURI(
                     Uri.parse(
-                        Helpers.createImageFile(
+                        GeneralHelper.createImageFile(
                             requireContext(),
                             PROFILE_IMAGE_NAME_TEMP
                         ).absolutePath

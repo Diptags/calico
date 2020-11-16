@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.list
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.JournalViewModel
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.JournalAdapter
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.create.JournalCreateFragment
 import kotlinx.android.synthetic.main.journal_list_fragment.*
 
 
@@ -42,13 +40,16 @@ class JournalListFragment : Fragment() {
         journalViewModel.getAllJournal(requireContext())?.observe(requireActivity(), Observer {
 
             if (it.isNotEmpty()) {
-                val journalAdapter = JournalAdapter()
+                val journalAdapter = JournalAdapter(this)
                 journalAdapter.journalList = it
+
                 val journalRecyclerView: RecyclerView? = view?.findViewById(R.id.journal_recycler)
                 journalRecyclerView?.adapter = journalAdapter
                 journalRecyclerView?.layoutManager = LinearLayoutManager(context)
 
-                journal_list_empty_placeholder.visibility = View.GONE
+                if (journal_list_empty_placeholder != null) {
+                    journal_list_empty_placeholder.visibility = View.GONE
+                }
             }
         })
     }

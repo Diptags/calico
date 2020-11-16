@@ -10,6 +10,8 @@
     <string name="connect_btn">hubungkan</string>
     <string name="cancel_btn">Batal</string>
     <string name="no_connection">Mohon hubungkan perangkat dengan internet untuk dapat menggunakan Calico</string>
+    <string name="form_max_length_error">Teks terlalu panjang</string>
+    <string name="form_min_length_error">Teks terlalu pendek</string>
 
     <!-- Notifikasi -->
     <string name="reminder_notification_title">Hari Baru, Inspirasi Baru</string>
@@ -25,9 +27,7 @@
     <string name="auth_success">Berhasil! Selamat datang di Calico</string>
     <string name="form_empty_error">Kolom ini harus diisi</string>
     <string name="wrong_credentials_error">Informasi Salah or Akun Tidak Ditemukan</string>
-    <string name="username_length_error">Panjang maksimum 20 karakter</string>
-    <string name="email_format_error">Format e-mailsalah</string>
-    <string name="password_length_error">Panjang minimum 4 karakter</string>
+    <string name="email_format_error">Format e-mail salah</string>
 
     <!-- Sign In Screen Information -->
     <string name="signin_title">Selamat Datang</string>
@@ -80,11 +80,21 @@
     <string name="profile_btn">Profil</string>
 
     <!-- Journal Screen Information -->
+    <string name="journal_button_add">Jurnal Baru</string>
     <string name="journal_info_title">Jurnal Anda</string>
     <string name="journal_info_intro">Semua jurnal memasak Anda ditampilkan disini</string>
     <string name="journal_card_title_placeholder">Judul Jurnal</string>
     <string name="journal_card_summary_placeholder">Deskripsi singkat jurnal</string>
     <string name="journal_empty">Ayo buat jurnal memasak pertama Anda sekarang</string>
+    <string name="journal_create_intro">Anda dapat menambahkan jurnal memasak disini. Sentuh gambar diatas untuk menambahkan gambar</string>
+    <string name="journal_form_placeholder">Tulis disini</string>
+    <string name="journal_title_placeholder">Judul Jurnal</string>
+    <string name="journal_type_placeholder">Tipe Hidangan</string>
+    <string name="journal_summary_placeholder">Catatan Kecil</string>
+    <string name="journal_description_placeholder">Deskripsi Jurnal</string>
+    <string name="journal_create_success">Jurnal berhasil dibuat!</string>
+    <string name="journal_food_radio_button_placeholder">Food or Snacks</string>
+    <string name="journal_beverage_radio_button_placeholder">Drinks</string>
 
     <!-- Profile Screen Information -->
     <string name="profile_edit_intro">Anda dapat mengubah informasi profil di sini. Sentuh gambar di atas untuk mengganti foto profil</string>
