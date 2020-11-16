@@ -1,17 +1,24 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.auth
 
+import android.app.PendingIntent
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.GENERAL_NOTIFICATION_CHANNEL_ID
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.NOTIFICATION_CODE
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Preferences
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home.HomeActivity
@@ -160,7 +167,7 @@ class AuthSignUpFragment : Fragment() {
         return userData
     }
 
-    fun signUpUser() {
+    private fun signUpUser() {
 
         formName = requireActivity().findViewById(R.id.signup_form_fullname)
         formUsername = requireActivity().findViewById(R.id.signup_form_username)
@@ -184,9 +191,32 @@ class AuthSignUpFragment : Fragment() {
                 userData["username"].toString(),
                 userData["password"].toString()
             )
+            showWelcomeNotification()
 
             startActivity(Intent(requireContext(), HomeActivity::class.java))
             requireActivity().finish()
         } else return
+    }
+
+    private fun showWelcomeNotification() {
+        val context = requireContext()
+        val pendingIntent: PendingIntent = Helpers.prepareNotificationIntent(context)
+        val notificationLargeIcon =
+            BitmapFactory.decodeResource(context.resources, R.drawable.logo_color)
+
+        val notificationBuilder = NotificationCompat.Builder(
+            context,
+            GENERAL_NOTIFICATION_CHANNEL_ID
+        ).apply {
+            setSmallIcon(R.drawable.logo_color)
+            setLargeIcon(notificationLargeIcon)
+            setContentIntent(pendingIntent)
+            setContentTitle(context.resources.getString(R.string.welcome_notification_title))
+            setContentText(context.resources.getString(R.string.welcome_notification_content))
+            priority = NotificationCompat.PRIORITY_DEFAULT
+            setAutoCancel(false)
+        }
+        val notificationManager = NotificationManagerCompat.from(context)
+        notificationManager.notify(NOTIFICATION_CODE, notificationBuilder.build())
     }
 }

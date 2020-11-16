@@ -14,7 +14,8 @@
     <!-- Notification -->
     <string name="reminder_notification_title">New Day, New Inspiration</string>
     <string name="reminder_notification_content">Calico can give you new cooking inspirations</string>
-
+    <string name="welcome_notification_title">Welcome to Calico</string>
+    <string name="welcome_notification_content">Enjoy your new cooking experiences</string>
 
     <!-- Permission -->
     <string name="permission_granted">Thank you for granting Calico permission</string>

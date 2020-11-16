@@ -9,20 +9,16 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.GENERAL_NOTIFICATION_CHANNEL_ID
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.NOTIFICATION_CODE
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home.HomeActivity
 
 
 class ReminderReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
 
+        val pendingIntent: PendingIntent = Helpers.prepareNotificationIntent(context)
         val notificationLargeIcon =
             BitmapFactory.decodeResource(context.resources, R.drawable.logo_color)
-
-        val notificationIntent = Intent(context, HomeActivity::class.java)
-        notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-
-        val pendingIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0)
 
         val notificationBuilder = NotificationCompat.Builder(
             context,
@@ -36,7 +32,6 @@ class ReminderReceiver : BroadcastReceiver() {
             priority = NotificationCompat.PRIORITY_DEFAULT
             setAutoCancel(false)
         }
-
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(NOTIFICATION_CODE, notificationBuilder.build())
     }

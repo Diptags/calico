@@ -60,5 +60,4 @@ class JournalListFragment : Fragment() {
             .addToBackStack(null)
             .commit()
     }
-
 }

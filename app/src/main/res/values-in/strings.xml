@@ -14,6 +14,8 @@
     <!-- Notifikasi -->
     <string name="reminder_notification_title">Hari Baru, Inspirasi Baru</string>
     <string name="reminder_notification_content">Calico akan membantu Anda mencari inspirasi memasak</string>
+    <string name="welcome_notification_title">Selamat datang di Calico</string>
+    <string name="welcome_notification_content">Selamat menikmati perjalanan memasak Anda</string>
 
     <!-- Perizinan -->
     <string name="permission_granted">Terima kasih telah memberikan Calico izin</string>

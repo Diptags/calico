@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Environment
@@ -103,6 +104,12 @@ class Helpers {
                 AlarmManager.INTERVAL_DAY,
                 pendingIntent
             )
+        }
+
+        fun prepareNotificationIntent(context: Context): PendingIntent {
+            val notificationIntent = Intent(context, HomeActivity::class.java)
+            notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            return PendingIntent.getActivity(context, 0, notificationIntent, 0)
         }
     }
 }
