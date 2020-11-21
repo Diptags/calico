@@ -20,6 +20,11 @@ class HomeActivity : AppCompatActivity() {
         Helpers.enableFullScreen(this)
         Helpers.scheduleDailyReminder(this)
 
+        Helpers.registerNetworkBroadcast(
+            this,
+            NetworkChangeReceiver()
+        )
+
         initReminderNotificationChannel()
         setContentView(R.layout.home_activity)
 
@@ -39,24 +44,15 @@ class HomeActivity : AppCompatActivity() {
         )
     }
 
-    override fun onStart() {
-        super.onStart()
-        Helpers.registerNetworkBroadcast(
-            this,
-            NetworkChangeReceiver()
-        )
-    }
-
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         try {
             Helpers.unregisterNetworkBroadcast(
                 this,
                 NetworkChangeReceiver()
             )
         } catch (e: IllegalArgumentException) {
-            Log.d("calico_network_broadcast", "IllegalArgumentException")
+            Log.d("calico_network_broadcast", e.toString())
         }
     }
-
 }

@@ -33,5 +33,4 @@ class NetworkChangeReceiver : BroadcastReceiver() {
             false
         }
     }
-
 }
