@@ -12,6 +12,7 @@
     <string name="no_connection">Mohon hubungkan perangkat dengan internet untuk dapat menggunakan Calico</string>
     <string name="form_max_length_error">Teks terlalu panjang</string>
     <string name="form_min_length_error">Teks terlalu pendek</string>
+    <string name="service_active">Layanan Calico telah diaktifkan!</string>
 
     <!-- Notifikasi -->
     <string name="reminder_notification_title">Hari Baru, Inspirasi Baru</string>

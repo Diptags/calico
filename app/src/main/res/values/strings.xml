@@ -12,6 +12,7 @@
     <string name="no_connection">Please connect to internet to get the best from Calico on your phone</string>
     <string name="form_max_length_error">Text is too long</string>
     <string name="form_min_length_error">Text is too short</string>
+    <string name="service_active">Calico service is activated!</string>
 
     <!-- Notification -->
     <string name="reminder_notification_title">New Day, New Inspiration</string>
@@ -129,5 +130,7 @@
     <!-- Fragments -->
     <string name="fragment_offline_dish">Food Fragment</string>
     <string name="coming_soon">This Feature is Coming Soon!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

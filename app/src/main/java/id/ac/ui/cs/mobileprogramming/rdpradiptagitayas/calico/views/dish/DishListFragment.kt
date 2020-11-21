@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 
-class DishFoodFragment : Fragment() {
+class DishListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

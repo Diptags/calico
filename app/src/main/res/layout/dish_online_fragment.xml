@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beverage_background"
-    tools:context=".views.dish.DishBeverageFragment">
+    tools:context=".views.dish.DishOnlineFragment">
 
     <ImageView
         android:id="@+id/coming_soon"

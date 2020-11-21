@@ -2,15 +2,11 @@ package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.dish
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers.Companion.registerNetworkBroadcast
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers.Companion.unregisterNetworkBroadcast
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.receivers.NetworkChangeReceiver
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home.HomeActivity
 
 
@@ -35,7 +31,7 @@ class DishActivity : AppCompatActivity() {
     }
 
     private fun changeFragmentToDishFoodFragment() {
-        val nextFragment = DishFoodFragment()
+        val nextFragment = DishListFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.dish_fragment_container, nextFragment)
             .commit()
@@ -48,9 +44,9 @@ class DishActivity : AppCompatActivity() {
                 var fragment: Fragment? = null
                 when (id) {
                     R.id.bottom_nav_food -> fragment =
-                        DishFoodFragment()
+                        DishListFragment()
                     R.id.bottom_nav_beverage -> fragment =
-                        DishBeverageFragment()
+                        DishOnlineFragment()
                 }
                 if (fragment != null) {
                     supportFragmentManager.beginTransaction()
