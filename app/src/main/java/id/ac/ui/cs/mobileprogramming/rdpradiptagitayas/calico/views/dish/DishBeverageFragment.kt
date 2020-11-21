@@ -14,6 +14,6 @@ class DishBeverageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.dish_beverage_fragment, container, false)
+        return inflater.inflate(R.layout.dish_online_fragment, container, false)
     }
 }

@@ -123,11 +123,11 @@
     <!-- Lain - Lain -->
 
     <!-- Navigation Bar di Bawah -->
-    <string name="menu_food">Makanan</string>
-    <string name="menu_beverage">Minuman</string>
+    <string name="menu_offline_dish">Makanan + Minuman</string>
+    <string name="menu_online_dish">Hidangan Lain</string>
 
     <!-- Fragments -->
-    <string name="fragment_food">Makanan Fragment</string>
-    <string name="fragment_beverage">Minuman Fragment</string>
+    <string name="fragment_offline_dish">Makanan Fragment</string>
+    <string name="coming_soon">Fitur Ini Akan Segera Hadir!</string>
 
 </resources>

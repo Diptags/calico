@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/bottom_nav_food"
-        android:title="@string/menu_food"
-        app:cnb_backgroundColor="@color/food_background" />
+        android:title="@string/menu_offline_dish"
+        app:cnb_backgroundColor="@color/colorPrimary" />
 
     <item
         android:id="@+id/bottom_nav_beverage"
-        android:title="@string/menu_beverage"
-        app:cnb_backgroundColor="@color/beverage_background" />
+        android:title="@string/menu_online_dish"
+        app:cnb_backgroundColor="@color/colorPrimary" />
 
 </menu>
