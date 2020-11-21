@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/homeBackground"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Logo -->
+        <RelativeLayout
+            android:id="@+id/signup_logo_image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="30dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/signin_logo_image"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="30dp"
+                android:contentDescription="@string/logo_desc"
+                android:src="@drawable/logo_long_color"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+        <!-- Form -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- SignUp Title -->
+            <TextView
+                android:id="@+id/signup_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/greycliff_bold"
+                android:text="@string/signup_title"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+            <!-- SignUp Subtitle -->
+            <TextView
+                android:id="@+id/signup_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/greycliff_demibold"
+                android:text="@string/signup_subtitle"
+                android:textSize="15sp" />
+
+            <!-- Scrollable Form -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- SignUp Form -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical">
+
+                        <!-- Full Name Box -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/signup_form_fullname"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/form_fullname">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Username Box -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/signup_form_username"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/form_username"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="20">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="20" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- E-mail Box -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/signup_form_email"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/form_email">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textEmailAddress" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Phone Number Box -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/signup_form_phone"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/form_phone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Password Box -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/signup_form_password"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/form_password"
+                            app:passwordToggleEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPassword" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Sign Up Button -->
+                        <Button
+                            android:id="@+id/sigupButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/signup_button" />
+
+                        <!-- Sign Up Button -->
+                        <Button
+                            android:id="@+id/signInButtonOnsignUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:background="#0000"
+                            android:elevation="0dp"
+                            android:onClick="openSignInForm"
+                            android:text="@string/signin_button_onsignup"
+                            android:textAllCaps="false"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

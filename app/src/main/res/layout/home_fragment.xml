@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dashboard_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/homeBackground">
@@ -82,8 +81,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/inspiration_btn"
-                        android:contentDescription="@string/logo_desc" />
+                        android:contentDescription="@string/logo_desc"
+                        android:src="@drawable/inspiration_btn" />
 
                 </RelativeLayout>
 
@@ -114,8 +113,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/journal_btn"
-                        android:contentDescription="@string/logo_desc" />
+                        android:contentDescription="@string/logo_desc"
+                        android:src="@drawable/journal_btn" />
 
                 </RelativeLayout>
 
@@ -146,8 +145,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/profile_btn"
-                        android:contentDescription="@string/logo_desc" />
+                        android:contentDescription="@string/logo_desc"
+                        android:src="@drawable/profile_btn" />
 
                 </RelativeLayout>
 
@@ -181,8 +180,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:text="Quote of the Day:"
             android:fontFamily="@font/greycliff_demibold"
+            android:text="@string/quote_title"
             android:textColor="@color/black"
             android:textSize="18sp" />
 

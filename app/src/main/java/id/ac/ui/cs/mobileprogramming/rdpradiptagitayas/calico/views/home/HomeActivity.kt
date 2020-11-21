@@ -24,7 +24,9 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.home_activity)
 
         if (savedInstanceState == null) {
-            changeFragmentToHomeFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.home_container, HomeFragment())
+                .commit()
         }
     }
 
@@ -35,13 +37,6 @@ class HomeActivity : AppCompatActivity() {
             GENERAL_NOTIFICATION_CHANNEL_ID, GENERAL_NOTIFICATION_CHANNEL_NAME,
             GENERAL_NOTIFICATION_CHANNEL_DESC
         )
-    }
-
-    private fun changeFragmentToHomeFragment() {
-        val nextFragment = HomeFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.home_container, nextFragment)
-            .commit()
     }
 
     override fun onStart() {
