@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.Journal
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.JournalViewModel
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.detail.JournalDetailFragment
 import kotlinx.android.synthetic.main.journal_create_fragment.*
 
 
@@ -37,20 +36,18 @@ class JournalCreateFragment : Fragment() {
 
         journalViewModel = ViewModelProvider(requireActivity()).get(JournalViewModel::class.java)
 
-        journalSaveButton.setOnClickListener {
-            renameTemporaryJournalImage()
-            sendJournalInformation()
+        prepareFormData()
 
-            Toast.makeText(
-                requireContext(),
-                requireContext().resources.getString(R.string.journal_create_success),
-                Toast.LENGTH_LONG
-            ).show()
+        journalSaveButton.setOnClickListener {
+            sendJournalInformation()
         }
     }
 
-    private fun renameTemporaryJournalImage() {
-        //
+    private fun prepareFormData() {
+        formTitle = requireActivity().findViewById(R.id.journalTitleForm)
+        formDishType = requireActivity().findViewById(R.id.journalDishForm)
+        formSummary = requireActivity().findViewById(R.id.journalSummaryForm)
+        formDescription = requireActivity().findViewById(R.id.journalDescriptionForm)
     }
 
     private fun isJournalFormValid(): Boolean {
@@ -109,47 +106,31 @@ class JournalCreateFragment : Fragment() {
     }
 
     private fun compileJournalData(): Journal {
-        val journalData = HashMap<String, String>()
-
-        journalData["title"] = formTitle?.editText!!.text.toString()
-        journalData["summary"] = formSummary?.editText!!.text.toString()
-        journalData["description"] = formDescription?.editText!!.text.toString()
-
         val radioId = formDishType?.checkedRadioButtonId!!
         val radioView: View = requireActivity().findViewById(radioId)
 
         val radioType: String = if (formDishType!!.indexOfChild(radioView) == 0) "food"
         else "beverage"
 
-        val journal = Journal(
+        return Journal(
             0,
             formTitle?.editText!!.text.toString(),
             radioType,
             formSummary?.editText!!.text.toString(),
             formDescription?.editText!!.text.toString()
         )
-        return journal
     }
 
     private fun sendJournalInformation() {
-        formTitle = requireActivity().findViewById(R.id.journalTitleForm)
-        formDishType = requireActivity().findViewById(R.id.journalDishForm)
-        formSummary = requireActivity().findViewById(R.id.journalSummaryForm)
-        formDescription = requireActivity().findViewById(R.id.journalDescriptionForm)
-
         if (isJournalFormValid()) {
             val journal = compileJournalData()
             journalViewModel.journalMutableLiveData.value = null
             journalViewModel.addJournal(requireContext(), journal)
-        }
 
-        Toast.makeText(
-            requireContext(),
-            requireContext().resources.getString(R.string.journal_create_success),
-            Toast.LENGTH_LONG
-        ).show()
+            Helpers.showToastMessage(requireContext(), R.string.journal_create_success)
+            changeFragmentToJournalDetailFragment()
 
-        changeFragmentToJournalDetailFragment()
+        } else return
     }
 
     private fun changeFragmentToJournalDetailFragment() {

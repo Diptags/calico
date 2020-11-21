@@ -78,15 +78,27 @@
     <string name="dish_btn">Inspirasi</string>
     <string name="journal_btn">Jurnal Anda</string>
     <string name="profile_btn">Profil</string>
+    <string name="quote_title">Quote hari ini:</string>
+    <string name="quote_1">Setiap orang punya usahanya sendiri</string>
+    <string name="quote_2">Hidup itu tidak pernah konstan</string>
+    <string name="quote_3">Tidak perlu takut untuk menjadi generalis</string>
+    <string name="quote_4">Teruslah belajar kapanpun dan dimanapun</string>
+    <string name="quote_5">Lakukan apa yang Anda bisa kapanpun dan dimanapun</string>
+    <string name="quote_6">Jadilah dirimu sendiri</string>
+    <string name="quote_7">Semua orang itu cerdas</string>
+    <string name="quote_8">Dunia nyata adalah guru terbaik</string>
+    <string name="quote_9">Terkadang manusia perlu waktu menyendiri</string>
+    <string name="quote_10">Anda bisa bekerja lebih baik jika tenang</string>
 
     <!-- Journal Screen Information -->
     <string name="journal_button_add">Jurnal Baru</string>
-    <string name="journal_info_title">Jurnal Anda</string>
-    <string name="journal_info_intro">Semua jurnal memasak Anda ditampilkan disini</string>
+    <string name="journal_list_title">Jurnal Anda</string>
+    <string name="journal_list_intro">Semua jurnal memasak Anda ditampilkan disini</string>
     <string name="journal_card_title_placeholder">Judul Jurnal</string>
     <string name="journal_card_summary_placeholder">Deskripsi singkat jurnal</string>
     <string name="journal_empty">Ayo buat jurnal memasak pertama Anda sekarang</string>
-    <string name="journal_create_intro">Anda dapat menambahkan jurnal memasak disini. Sentuh gambar diatas untuk menambahkan gambar</string>
+    <string name="journal_create_title">Tambah Jurnal</string>
+    <string name="journal_create_intro">Anda dapat menambahkan jurnal memasak disini</string>
     <string name="journal_form_placeholder">Tulis disini</string>
     <string name="journal_title_placeholder">Judul Jurnal</string>
     <string name="journal_type_placeholder">Tipe Hidangan</string>
@@ -95,6 +107,8 @@
     <string name="journal_create_success">Jurnal berhasil dibuat!</string>
     <string name="journal_food_radio_button_placeholder">Food or Snacks</string>
     <string name="journal_beverage_radio_button_placeholder">Drinks</string>
+    <string name="journal_detail_placeholder">Informasi Jurnal</string>
+    <string name="journal_info_intro">Anda dapat melihat detail jurnal memasak disini</string>
 
     <!-- Profile Screen Information -->
     <string name="profile_edit_intro">Anda dapat mengubah informasi profil di sini. Sentuh gambar di atas untuk mengganti foto profil</string>
@@ -113,28 +127,7 @@
     <string name="menu_beverage">Minuman</string>
 
     <!-- Fragments -->
-    <string name="fragment_journal">Jurnal Fragment</string>
-    <string name="fragment_profile">Profil Fragment</string>
-    <string name="fragment_other">Menu Lainnya Fragment</string>
-
     <string name="fragment_food">Makanan Fragment</string>
     <string name="fragment_beverage">Minuman Fragment</string>
-
-    <!-- BELUM DITRANSLATE KE INDO -->
-
-    <!-- Dashboard (Categories) -->
-    <string name="hotels">Hotels</string>
-    <string name="restaurants">Restaurants</string>
-    <string name="shops">Shops</string>
-    <string name="banks">Banks</string>
-    <string name="airports">Airports</string>
-
-    <!-- Dashboard (Title & Descriptions) -->
-    <string name="featured_locations">All Featured Locations</string>
-    <string name="featured_locations_description">All the locations</string>
-    <string name="most_viewed">Most Viewed</string>
-    <string name="categories">Categories</string>
-    <string name="view_all">View All</string>
-    <string name="search_text">View All</string>
 
 </resources>

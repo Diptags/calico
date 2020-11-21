@@ -44,6 +44,7 @@ android {
 
 dependencies {
 
+    implementation 'androidx.wear:wear:1.1.0'
     def androidx_version = '1.1.0'
     compileOnly 'com.google.android.wearable:wearable:2.8.1'
     def retrofit_version = '2.9.0'

@@ -17,9 +17,6 @@ data class Dish(
     @ColumnInfo(name = "type")
     val type: String,
 
-    @ColumnInfo(name = "imageUrl")
-    val imageUrl: String,
-
     @ColumnInfo(name = "desc")
     val desc: String
 

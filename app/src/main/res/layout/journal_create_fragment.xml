@@ -21,29 +21,42 @@
                 android:id="@+id/profileImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:contentDescription="@string/logo_desc"
-                android:src="@drawable/upload_dummy" />
+                android:src="@drawable/journal_create" />
 
+            <TextView
+                android:id="@+id/profileFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@id/profileImage"
+                android:fontFamily="@font/greycliff_bold"
+                android:includeFontPadding="false"
+                android:text="@string/journal_create_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/profileUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profileFullName"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@id/profileImage"
+                android:fontFamily="@font/greycliff_demibold"
+                android:includeFontPadding="false"
+                android:text="@string/journal_create_intro"
+                android:textSize="15sp" />
         </RelativeLayout>
 
         <!-- Down Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:orientation="vertical"
             android:padding="20dp">
-
-            <!-- Journal Page Introdution -->
-            <TextView
-                android:id="@+id/signin_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="@string/journal_create_intro"
-                android:textSize="15sp" />
 
             <!-- Journal Title -->
             <com.google.android.material.textfield.TextInputLayout
@@ -120,7 +133,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:drawablePadding="10dp"
                     app:endIconMode="clear_text" />
 

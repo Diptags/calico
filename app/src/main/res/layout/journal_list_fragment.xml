@@ -19,7 +19,7 @@
             android:layout_height="80dp"
             android:layout_centerVertical="true"
             android:contentDescription="@string/logo_desc"
-            android:src="@drawable/journal_btn" />
+            android:src="@drawable/journal_create" />
 
         <TextView
             android:id="@+id/profileFullName"
@@ -30,7 +30,7 @@
             android:layout_toEndOf="@id/profileImage"
             android:fontFamily="@font/greycliff_bold"
             android:includeFontPadding="false"
-            android:text="@string/journal_info_title"
+            android:text="@string/journal_list_title"
             android:textSize="20sp" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_toEndOf="@id/profileImage"
             android:fontFamily="@font/greycliff_demibold"
             android:includeFontPadding="false"
-            android:text="@string/journal_info_intro"
+            android:text="@string/journal_list_intro"
             android:textSize="15sp" />
     </RelativeLayout>
 

@@ -10,3 +10,4 @@ const val GENERAL_NOTIFICATION_CHANNEL_NAME = "General Information"
 const val GENERAL_NOTIFICATION_CHANNEL_DESC = "General Notification Channel"
 const val PROFILE_IMAGE_NAME = "profile-image.jpg"
 const val PROFILE_IMAGE_NAME_TEMP = "profile-image-temp.jpg"
+

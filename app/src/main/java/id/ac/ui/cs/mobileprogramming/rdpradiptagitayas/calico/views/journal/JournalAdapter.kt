@@ -11,7 +11,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.Journal
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home.HomeActivity
 
 
 class JournalAdapter(var journalListFragment: JournalListFragment) :
@@ -45,8 +44,10 @@ class JournalAdapter(var journalListFragment: JournalListFragment) :
             else holder.cardImage.setImageResource(R.drawable.beverage)
 
             holder.parentLayout.setOnClickListener {
-                val intent = Intent(journalListFragment.context, HomeActivity::class.java)
-                intent.putExtra("id", journal.journalId)
+                val intent = Intent(journalListFragment.context, JournalDetailActivity::class.java)
+                intent.putExtra("title", journal.title)
+                intent.putExtra("summary", journal.summary)
+                intent.putExtra("description", journal.description)
                 journalListFragment.startActivity(intent)
             }
         }

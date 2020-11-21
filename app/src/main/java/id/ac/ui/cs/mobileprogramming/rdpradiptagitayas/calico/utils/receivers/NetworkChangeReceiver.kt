@@ -5,7 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper.Companion.showConnectionErrorDialog
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers.Companion.showConnectionErrorDialog
 
 @Suppress("DEPRECATION")
 class NetworkChangeReceiver : BroadcastReceiver() {

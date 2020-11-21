@@ -2,6 +2,7 @@ package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +12,14 @@ import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.dish.DishAct
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.JournalActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.profile.ProfileActivity
 import kotlinx.android.synthetic.main.home_fragment.*
+import java.util.*
 
 
+@Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
+
+    private lateinit var mHandler: Handler
+    private lateinit var mRunnable: Runnable
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,5 +42,41 @@ class HomeFragment : Fragment() {
         profileButton.setOnClickListener {
             startActivity(Intent(activity, ProfileActivity::class.java))
         }
+
+        mHandler = Handler()
+
+        changeQuote()
+    }
+
+    private fun getRandomQuote(): Int {
+        val quotes: Array<Int> = arrayOf(
+            R.string.quote_1,
+            R.string.quote_2,
+            R.string.quote_3,
+            R.string.quote_4,
+            R.string.quote_5,
+            R.string.quote_6,
+            R.string.quote_7,
+            R.string.quote_8,
+            R.string.quote_9,
+            R.string.quote_10,
+        )
+        val random = Random()
+        val index: Int = random.nextInt(10)
+        return quotes[index]
+    }
+
+    private fun changeQuote() {
+        mRunnable = Runnable {
+            quoteText.setText(getRandomQuote())
+            mHandler.postDelayed(
+                mRunnable,
+                5000
+            )
+        }
+        mHandler.postDelayed(
+            mRunnable,
+            5000
+        )
     }
 }

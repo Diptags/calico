@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils
 
 import android.app.*
 import android.content.BroadcastReceiver
@@ -11,6 +11,7 @@ import android.os.Environment
 import android.provider.Settings
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.receivers.ReminderReceiver
@@ -19,7 +20,7 @@ import java.io.File
 import java.util.*
 
 @Suppress("DEPRECATION")
-class GeneralHelper {
+class Helpers {
 
     companion object {
 
@@ -110,6 +111,14 @@ class GeneralHelper {
             notificationIntent.flags =
                 Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             return PendingIntent.getActivity(context, 0, notificationIntent, 0)
+        }
+
+        fun showToastMessage(context: Context, resourceId: Int) {
+            Toast.makeText(
+                context,
+                context.resources.getString(resourceId),
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 }

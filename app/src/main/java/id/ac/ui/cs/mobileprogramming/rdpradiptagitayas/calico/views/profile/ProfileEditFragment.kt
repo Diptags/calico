@@ -11,16 +11,18 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.User
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.*
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.PROFILE_IMAGE_NAME
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.PROFILE_IMAGE_NAME_TEMP
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Preferences
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.REQUEST_IMAGE_CODE
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
 import kotlinx.android.synthetic.main.profile_edit_fragment.*
 import java.io.File
@@ -31,10 +33,10 @@ class ProfileEditFragment : Fragment() {
 
     lateinit var userViewModel: UserViewModel
 
-    private var formFullName: TextInputEditText? = null
-    private var formUsername: TextInputEditText? = null
-    private var formEmail: TextInputEditText? = null
-    private var formPhoneNo: TextInputEditText? = null
+    private var formName: TextInputLayout? = null
+    private var formUsername: TextInputLayout? = null
+    private var formEmail: TextInputLayout? = null
+    private var formPhoneNo: TextInputLayout? = null
 
     private var signedInUser: User? = null
 
@@ -61,17 +63,19 @@ class ProfileEditFragment : Fragment() {
         profileUpdateButton.setOnClickListener {
             renameTemporaryProfileImage()
             sendProfileInformation()
-
-            Toast.makeText(
-                requireContext(),
-                requireContext().resources.getString(R.string.profile_update_success),
-                Toast.LENGTH_LONG
-            ).show()
         }
     }
 
+    private fun prepareFormData() {
+        formName = requireActivity().findViewById(R.id.profileFullNameForm)
+        formUsername = requireActivity().findViewById(R.id.profileUsernameForm)
+        formEmail = requireActivity().findViewById(R.id.profileEmailForm)
+        formPhoneNo = requireActivity().findViewById(R.id.profilePhoneNumberForm)
+    }
+
     private fun showProfileImage() {
-        val profileImageFile: File = GeneralHelper.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
+        val profileImageFile: File =
+            Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
         if (profileImageFile.exists()) {
             val myBitmap = BitmapFactory.decodeFile(profileImageFile.absolutePath)
             profileImage.setImageBitmap(myBitmap)
@@ -90,27 +94,21 @@ class ProfileEditFragment : Fragment() {
                 ?.observe(requireActivity(), {
                     if (it != null) {
                         signedInUser = it
-                        formFullName?.setText(it.name)
-                        formUsername?.setText(it.username)
-                        formEmail?.setText(it.email)
-                        formPhoneNo?.setText(it.phoneNo)
+                        formName?.editText!!.setText(it.name)
+                        formUsername?.editText!!.setText(it.username)
+                        formEmail?.editText!!.setText(it.email)
+                        formPhoneNo?.editText!!.setText(it.phoneNo)
                     }
                 })
         }
     }
 
-    private fun prepareFormData() {
-        formFullName = requireActivity().findViewById(R.id.profileFullNameForm)
-        formUsername = requireActivity().findViewById(R.id.profileUsernameForm)
-        formEmail = requireActivity().findViewById(R.id.profileEmailForm)
-        formPhoneNo = requireActivity().findViewById(R.id.profilePhoneNumberForm)
-    }
 
     @SuppressLint("QueryPermissionsNeeded")
     private fun getProfileImageFile() {
 
         val photoFile = try {
-            GeneralHelper.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
+            Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
         } catch (e: IOException) {
             e.printStackTrace()
             return
@@ -145,29 +143,105 @@ class ProfileEditFragment : Fragment() {
     }
 
     private fun renameTemporaryProfileImage(): Boolean {
-        GeneralHelper.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
+        Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
             .renameTo(
-                GeneralHelper.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
+                Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
             )
         return true
     }
 
-    private fun sendProfileInformation() {
-        val updatedUserProfile = User(
+    private fun isProfileFormValid(): Boolean {
+        return (validateName() or validateUsername() or validateEmail() or validatePhoneNo())
+    }
+
+    private fun validateName(): Boolean {
+        val value: String = formName?.editText?.text.toString()
+
+        return if (value.isEmpty()) {
+            formName?.error = requireContext().resources.getString(R.string.form_empty_error)
+            false
+        } else {
+            formName?.error = null
+            formName?.isErrorEnabled = false
+            true
+        }
+    }
+
+    private fun validateUsername(): Boolean {
+        val value: String = formUsername?.editText?.text.toString()
+
+        return if (value.isEmpty()) {
+            formUsername?.error = requireContext().resources.getString(R.string.form_empty_error)
+            false
+        } else if (value.length >= 20) {
+            formUsername?.error =
+                requireContext().resources.getString(R.string.form_max_length_error)
+            false
+        } else {
+            formUsername?.error = null
+            formUsername?.isErrorEnabled = false
+            true
+        }
+    }
+
+    private fun validateEmail(): Boolean {
+        val value: String = formEmail?.editText?.text.toString()
+        val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")
+
+        return if (value.isEmpty()) {
+            formEmail?.error = requireContext().resources.getString(R.string.form_empty_error)
+            false
+        } else if (!value.matches(emailPattern)) {
+            formEmail?.error = requireContext().resources.getString(R.string.email_format_error)
+            false
+        } else {
+            formEmail?.error = null
+            formEmail?.isErrorEnabled = false
+            true
+        }
+    }
+
+    private fun validatePhoneNo(): Boolean {
+        val value: String = formPhoneNo?.editText?.text.toString()
+
+        return if (value.isEmpty()) {
+            formPhoneNo?.error = requireContext().resources.getString(R.string.form_empty_error)
+            false
+        } else {
+            formPhoneNo?.error = null
+            formPhoneNo?.isErrorEnabled = false
+            true
+        }
+    }
+
+    private fun compileUserData(): User {
+        return User(
             signedInUser!!.userId,
-            formFullName?.text.toString(),
-            formUsername?.text.toString(),
-            formEmail?.text.toString(),
-            formPhoneNo?.text.toString(),
+            formName?.editText!!.text.toString(),
+            formUsername?.editText!!.text.toString(),
+            formEmail?.editText!!.text.toString(),
+            formPhoneNo?.editText!!.text.toString(),
             signedInUser!!.password
         )
-        userViewModel.updateUser(requireContext(), updatedUserProfile)
+    }
 
-        val sharedPreferences : SharedPreferences =
+    private fun sendProfileInformation() {
+        if (isProfileFormValid()) {
+            val user = compileUserData()
+            userViewModel.updateUser(requireContext(), user)
+
+            updateSharedPreferences()
+            Helpers.showToastMessage(requireContext(), R.string.profile_update_success)
+
+        } else return
+    }
+
+    private fun updateSharedPreferences() {
+        val sharedPreferences: SharedPreferences =
             requireContext().getSharedPreferences("calico", AppCompatActivity.MODE_PRIVATE)
         Preferences.saveCredentials(
             sharedPreferences,
-            formUsername?.text.toString(),
+            formUsername?.editText!!.text.toString(),
             signedInUser!!.password
         )
     }
@@ -179,7 +253,7 @@ class ProfileEditFragment : Fragment() {
             if (resultCode == Activity.RESULT_OK) {
                 profileImage.setImageURI(
                     Uri.parse(
-                        GeneralHelper.createImageFile(
+                        Helpers.createImageFile(
                             requireContext(),
                             PROFILE_IMAGE_NAME_TEMP
                         ).absolutePath

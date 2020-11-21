@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper.Companion.registerNetworkBroadcast
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper.Companion.unregisterNetworkBroadcast
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers.Companion.registerNetworkBroadcast
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers.Companion.unregisterNetworkBroadcast
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.receivers.NetworkChangeReceiver
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.home.HomeActivity
 
@@ -21,7 +21,7 @@ class DishActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        GeneralHelper.enableFullScreen(this)
+        Helpers.enableFullScreen(this)
         setContentView(R.layout.dish_activity)
 
         chipNavigationBar = findViewById(R.id.bottom_nav_menu)
@@ -69,26 +69,6 @@ class DishActivity : AppCompatActivity() {
             finish()
         } else {
             supportFragmentManager.popBackStack()
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        registerNetworkBroadcast(
-            this,
-            NetworkChangeReceiver()
-        )
-    }
-
-    override fun onStop() {
-        super.onStop()
-        try {
-            unregisterNetworkBroadcast(
-                this,
-                NetworkChangeReceiver()
-            )
-        } catch (e: IllegalArgumentException) {
-            Log.d("calico_network_broadcast", "IllegalArgumentException")
         }
     }
 }

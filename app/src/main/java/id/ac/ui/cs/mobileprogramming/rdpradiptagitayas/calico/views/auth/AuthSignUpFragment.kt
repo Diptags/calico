@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -17,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.GENERAL_NOTIFICATION_CHANNEL_ID
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelper
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.NOTIFICATION_CODE
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Preferences
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
@@ -49,6 +48,8 @@ class AuthSignUpFragment : Fragment() {
 
         userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
+        prepareFormData()
+
         // Check if user already logged in before
         sharedPreferences =
             requireContext().getSharedPreferences("calico", AppCompatActivity.MODE_PRIVATE)
@@ -62,8 +63,17 @@ class AuthSignUpFragment : Fragment() {
         }
 
         sigupButton.setOnClickListener {
-            signUpUser()
+            sendSignUpInformation()
+            Helpers.showToastMessage(requireContext(), R.string.auth_success)
         }
+    }
+
+    private fun prepareFormData() {
+        formName = requireActivity().findViewById(R.id.signup_form_fullname)
+        formUsername = requireActivity().findViewById(R.id.signup_form_username)
+        formEmail = requireActivity().findViewById(R.id.signup_form_email)
+        formPhoneNo = requireActivity().findViewById(R.id.signup_form_phone)
+        formPassword = requireActivity().findViewById(R.id.signup_form_password)
     }
 
     private fun openSignInForm() {
@@ -165,40 +175,31 @@ class AuthSignUpFragment : Fragment() {
         return userData
     }
 
-    private fun signUpUser() {
-
-        formName = requireActivity().findViewById(R.id.signup_form_fullname)
-        formUsername = requireActivity().findViewById(R.id.signup_form_username)
-        formEmail = requireActivity().findViewById(R.id.signup_form_email)
-        formPhoneNo = requireActivity().findViewById(R.id.signup_form_phone)
-        formPassword = requireActivity().findViewById(R.id.signup_form_password)
-
+    private fun sendSignUpInformation() {
         if (isSignUpFormValid()) {
-
             val userData = compileUserData()
             userViewModel.addUser(requireContext(), userData)
 
-            Toast.makeText(
-                requireContext(),
-                requireContext().resources.getString(R.string.auth_success),
-                Toast.LENGTH_LONG
-            ).show()
-
-            Preferences.saveCredentials(
-                sharedPreferences,
-                userData["username"].toString(),
-                userData["password"].toString()
-            )
+            updateSharedPreferences(userData)
             showWelcomeNotification()
 
             startActivity(Intent(requireContext(), HomeActivity::class.java))
             requireActivity().finish()
+
         } else return
+    }
+
+    private fun updateSharedPreferences(userData: HashMap<String, String>) {
+        Preferences.saveCredentials(
+            sharedPreferences,
+            userData["username"].toString(),
+            userData["password"].toString()
+        )
     }
 
     private fun showWelcomeNotification() {
         val context = requireContext()
-        val pendingIntent: PendingIntent = GeneralHelper.prepareNotificationIntent(context)
+        val pendingIntent: PendingIntent = Helpers.prepareNotificationIntent(context)
         val notificationLargeIcon =
             BitmapFactory.decodeResource(context.resources, R.drawable.logo_color)
 
