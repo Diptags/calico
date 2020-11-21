@@ -64,7 +64,6 @@ class AuthSignUpFragment : Fragment() {
 
         sigupButton.setOnClickListener {
             sendSignUpInformation()
-            Helpers.showToastMessage(requireContext(), R.string.auth_success)
         }
     }
 
@@ -162,7 +161,7 @@ class AuthSignUpFragment : Fragment() {
     }
 
     private fun isSignUpFormValid(): Boolean {
-        return (validateName() or validateUsername() or validateEmail() or validatePhoneNo() or validatePassword())
+        return (validateName() and validateUsername() and validateEmail() and validatePhoneNo() and validatePassword())
     }
 
     private fun compileUserData(): HashMap<String, String> {
@@ -183,6 +182,7 @@ class AuthSignUpFragment : Fragment() {
             updateSharedPreferences(userData)
             showWelcomeNotification()
 
+            Helpers.showToastMessage(requireContext(), R.string.auth_success)
             startActivity(Intent(requireContext(), HomeActivity::class.java))
             requireActivity().finish()
 

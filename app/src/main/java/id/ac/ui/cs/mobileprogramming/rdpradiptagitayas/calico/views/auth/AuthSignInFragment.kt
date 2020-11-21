@@ -91,7 +91,7 @@ class AuthSignInFragment : Fragment() {
     }
 
     private fun isSignInFormValid(): Boolean {
-        return !(!validateUsername() or !validatePassword())
+        return (validateUsername() and validatePassword())
     }
 
     private fun signInUser() {
