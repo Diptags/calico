@@ -151,7 +151,7 @@ class ProfileEditFragment : Fragment() {
     }
 
     private fun isProfileFormValid(): Boolean {
-        return (validateName() or validateUsername() or validateEmail() or validatePhoneNo())
+        return (validateName() and validateUsername() and validateEmail() and validatePhoneNo())
     }
 
     private fun validateName(): Boolean {

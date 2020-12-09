@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +15,7 @@ import kotlinx.android.synthetic.main.journal_list_fragment.*
 
 class JournalListFragment : Fragment() {
 
-    lateinit var journalViewModel: JournalViewModel
+    private lateinit var journalViewModel: JournalViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +36,7 @@ class JournalListFragment : Fragment() {
     }
 
     private fun getJournals() {
-        journalViewModel.getAllJournal(requireContext())?.observe(requireActivity(), Observer {
+        journalViewModel.getAllJournal(requireContext())?.observe(requireActivity(), {
 
             if (it.isNotEmpty()) {
                 val journalAdapter = JournalAdapter(this)

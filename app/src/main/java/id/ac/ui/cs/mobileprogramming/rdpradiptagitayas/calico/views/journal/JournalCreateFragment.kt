@@ -51,7 +51,7 @@ class JournalCreateFragment : Fragment() {
     }
 
     private fun isJournalFormValid(): Boolean {
-        return (validateTitle() or validateSummary() or validateDescription())
+        return (validateTitle() and validateSummary() and validateDescription())
     }
 
     private fun validateTitle(): Boolean {
