@@ -1,23 +1,18 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.onboarding
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.text.Html
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.PERMISSION_ALL_CODE
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.auth.AuthActivity
 
 
@@ -34,18 +29,10 @@ class OnboardingActivity : AppCompatActivity() {
     private var getStartedButton: Button? = null
     private var onboardingAdapter: OnboardingAdapter? = null
 
-    // Permissions
-    private var PERMISSIONS = arrayOf(
-        Manifest.permission.CAMERA,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         Helpers.enableFullScreen(this)
-
-        askPermissions()
         setContentView(R.layout.onboarding_activity)
 
         // Hooks
@@ -65,28 +52,6 @@ class OnboardingActivity : AppCompatActivity() {
         // Memanggil listener untuk komponen ViewPager
         addDots(0)
         viewPager?.addOnPageChangeListener(changeListener)
-    }
-
-    private fun askPermissions() {
-        ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL_CODE)
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        if (requestCode == PERMISSION_ALL_CODE && grantResults.isNotEmpty()) {
-            val messageToUser =
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                    this.getString(R.string.permission_granted)
-                } else {
-                    this.getString(R.string.permission_denied)
-                }
-            Toast.makeText(this, messageToUser, Toast.LENGTH_SHORT).show()
-        }
     }
 
     fun nextSlide(view: View) {
