@@ -1,9 +1,11 @@
 package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.profile
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
@@ -12,18 +14,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.User
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.PROFILE_IMAGE_NAME
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.PROFILE_IMAGE_NAME_TEMP
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Preferences
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.REQUEST_IMAGE_CODE
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.*
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.misc.PermissionDeniedFragment
 import kotlinx.android.synthetic.main.profile_edit_fragment.*
 import java.io.File
 import java.io.IOException
@@ -39,6 +39,12 @@ class ProfileEditFragment : Fragment() {
     private var formPhoneNo: TextInputLayout? = null
 
     private var signedInUser: User? = null
+
+    // Permissions
+    private var PERMISSIONS = arrayOf(
+        Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +63,19 @@ class ProfileEditFragment : Fragment() {
         prepareFormData()
 
         profileImage.setOnClickListener {
-            getProfileImageFile()
+
+            // Bagian ini akan menanyakan permission terlebih dahulu, dan mengambil foto jika diizinkan.
+            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) +
+                ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                getProfileImageFile()
+            } else {
+                // Apabila tidak diizinkan, maka akan menanyakan permission baru
+                askPermissions()
+            }
         }
 
         profileUpdateButton.setOnClickListener {
@@ -103,6 +121,40 @@ class ProfileEditFragment : Fragment() {
         }
     }
 
+    private fun askPermissions() {
+        // Request permission di fragment tidak menggunakan ActivityCompat.requestPermissions
+        requestPermissions(PERMISSIONS, PERMISSION_ALL_CODE)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == PERMISSION_ALL_CODE && grantResults.isNotEmpty()) {
+            val messageToUser =
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1]
+                    == PackageManager.PERMISSION_GRANTED
+                ) {
+                    getProfileImageFile()
+                    this.getString(R.string.permission_granted)
+                } else {
+                    changeFragmentToPermissionDeniedFragment()
+                    this.getString(R.string.permission_denied)
+                }
+            Helpers.showToastMessage(requireContext(), messageToUser)
+        }
+    }
+
+    private fun changeFragmentToPermissionDeniedFragment() {
+        val nextFragment = PermissionDeniedFragment()
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.profile_container, nextFragment)
+            .addToBackStack(null)
+            .commit()
+    }
 
     @SuppressLint("QueryPermissionsNeeded")
     private fun getProfileImageFile() {
@@ -229,10 +281,8 @@ class ProfileEditFragment : Fragment() {
         if (isProfileFormValid()) {
             val user = compileUserData()
             userViewModel.updateUser(requireContext(), user)
-
             updateSharedPreferences()
             Helpers.showToastMessage(requireContext(), R.string.profile_update_success)
-
         } else return
     }
 

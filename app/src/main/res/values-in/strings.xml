@@ -22,7 +22,7 @@
 
     <!-- Perizinan -->
     <string name="permission_granted">Terima kasih telah memberikan Calico izin</string>
-    <string name="permission_denied">Tidak apa - apa, Anda tetap bisa mengubah izin di pengaturan</string>
+    <string name="permission_denied">Mohon terima semua izin untuk melanjutkan</string>
 
     <!-- Form Autentikasi -->
     <string name="auth_success">Berhasil! Selamat datang di Calico</string>
@@ -130,5 +130,9 @@
     <!-- Fragments -->
     <string name="fragment_offline_dish">Makanan Fragment</string>
     <string name="coming_soon">Fitur Ini Akan Segera Hadir!</string>
+
+    <!-- Permission Denied Fragment -->
+    <string name="permission_denied_title">Mohon Terima Semua Izin</string>
+    <string name="permission_denied_content">Untuk memberikan pengalaman terbaik, beberapa fitur di Calico membutuhkan perizinan agar dapat berjalan dengan baik!</string>
 
 </resources>

@@ -22,7 +22,7 @@
 
     <!-- Permission -->
     <string name="permission_granted">Thank you for granting Calico permission</string>
-    <string name="permission_denied">No worries, you can change permission on your phone settings</string>
+    <string name="permission_denied">Please grant all permissions to continue</string>
 
     <!-- Authentication Form -->
     <string name="auth_success">Success! Welcome to Calico</string>
@@ -130,7 +130,9 @@
     <!-- Fragments -->
     <string name="fragment_offline_dish">Food Fragment</string>
     <string name="coming_soon">This Feature is Coming Soon!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Permission Denied Fragment -->
+    <string name="permission_denied_title">Please Grant All Permissions</string>
+    <string name="permission_denied_content">To give the best experience, some features in Calico need permissions to be able work perfectly</string>
 
 </resources>

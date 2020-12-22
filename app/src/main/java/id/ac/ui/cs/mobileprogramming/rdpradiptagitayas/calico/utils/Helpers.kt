@@ -113,10 +113,20 @@ class Helpers {
             return PendingIntent.getActivity(context, 0, notificationIntent, 0)
         }
 
+        // Toast message untuk elemen yang berasal dari sebuah R.string (tipe datanya adalah Int)
         fun showToastMessage(context: Context, resourceId: Int) {
             Toast.makeText(
                 context,
                 context.resources.getString(resourceId),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+        // Toast message untuk elemen yang berasal dari sebuah Kotlin string
+        fun showToastMessage(context: Context, resource: String) {
+            Toast.makeText(
+                context,
+                resource,
                 Toast.LENGTH_LONG
             ).show()
         }
