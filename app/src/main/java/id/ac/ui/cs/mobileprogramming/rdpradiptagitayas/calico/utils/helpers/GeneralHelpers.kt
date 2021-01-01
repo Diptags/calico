@@ -60,11 +60,6 @@ class Helpers {
                 ) { _, _ ->
                     context.startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
                 }
-                .setNegativeButton(
-                    R.string.cancel_btn
-                ) { _, _ ->
-                    context.startActivity(Intent(context, HomeActivity::class.java))
-                }
                 .show()
         }
 
@@ -86,22 +81,21 @@ class Helpers {
         }
 
         fun scheduleDailyReminder(context: Context) {
-            val manager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val pendingIntent: PendingIntent
+            val manager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val calendar = Calendar.getInstance()
 
-            calendar.set(Calendar.SECOND, 0)
-            calendar.set(Calendar.MINUTE, 0)
-            calendar.set(Calendar.HOUR, 0)
-            calendar.set(Calendar.AM_PM, Calendar.AM)
+            calendar.timeInMillis = System.currentTimeMillis();
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE, 59);
+            calendar.set(Calendar.SECOND, 0);
 
             val myIntent = Intent(context, ReminderReceiver::class.java)
             pendingIntent = PendingIntent.getBroadcast(context, 0, myIntent, 0)
 
-            manager.setRepeating(
+            manager.set(
                 AlarmManager.RTC_WAKEUP,
                 calendar.timeInMillis,
-                AlarmManager.INTERVAL_DAY,
                 pendingIntent
             )
         }

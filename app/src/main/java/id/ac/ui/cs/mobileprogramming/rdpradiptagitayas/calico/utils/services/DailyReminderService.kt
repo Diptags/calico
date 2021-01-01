@@ -3,7 +3,7 @@ package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.services
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelpers
 
 
 class ReminderService : Service() {
@@ -13,7 +13,7 @@ class ReminderService : Service() {
     }
 
     override fun onCreate() {
-        Helpers.scheduleDailyReminder(this)
+        GeneralHelpers.scheduleDailyReminder(this)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {

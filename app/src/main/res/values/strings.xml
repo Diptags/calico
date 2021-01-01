@@ -9,6 +9,9 @@
     <string name="update_btn">Update</string>
     <string name="connect_btn">Connect</string>
     <string name="cancel_btn">Cancel</string>
+    <string name="extras_btn">Calico Corner</string>
+    <string name="music_player_btn">Calico Music Player</string>
+    <string name="timer_btn">Calico Timer</string>
     <string name="no_connection">Please connect to internet to get the best from Calico on your phone</string>
     <string name="form_max_length_error">Text is too long</string>
     <string name="form_min_length_error">Text is too short</string>
@@ -121,7 +124,43 @@
     <string name="profile_phone_placeholder">Phone Number</string>
     <string name="profile_update_success">Profile updated successfully!</string>
 
-    <!-- Others -->
+    <!-- Extras Screen Information -->
+    <string name="extras_list_title">Calico Extras</string>
+    <string name="extras_list_intro">Try Calico additional features</string>
+    <string name="extras_list_question_title">Special Random Question for You</string>
+    <string name="extras_list_question_content">A Question</string>
+
+    <string name="question_1">Have you ever wondered, why noodle is delicious ?</string>
+    <string name="question_2">Are medium rare chickens good to eat ?</string>
+    <string name="question_3">Have you ever cooked Steak ?</string>
+    <string name="question_4">Do you love cookies ?</string>
+    <string name="question_5">Have you ever tried sushi ? Try it and you will love it</string>
+    <string name="question_6">Have you ever wondered why some cheese are smelly ?</string>
+    <string name="question_7">Do you love pancakes ? There are sweet and savoury pancakes!</string>
+    <string name="question_8">What do you think about savoury crepes ? Many people loves it!</string>
+    <string name="question_9">Cheese! What kind of cheese you ever had tasted ?</string>
+    <string name="question_10">Mango juice for holiday, what do you think ?</string>
+
+    <!-- Calico Timer -->
+    <string name="timer_title">Calico Journal Reminder Timer</string>
+    <string name="timer_desc">Here you can set when Calico should remind you to write journal next time. You will get notification once time is up</string>
+    <string name="timer_btn_1">30 minutes from now</string>
+    <string name="timer_btn_2">1 hours from now</string>
+    <string name="timer_btn_3">6 hours from now</string>
+    <string name="timer_btn_4">12 hours from now</string>
+    <string name="timer_success">Countdown successfully set! You will be notified later</string>
+    <string name="timer_notification_title">Time to Write Journal!</string>
+    <string name="timer_notification_desc">Calico will help you memorize your cooking journey</string>
+
+    <!-- Calico Music Player -->
+    <string name="music_title">Calico Music Player (Experimental)</string>
+    <string name="music_desc">Here you can play your favorite music while writing journal. For now you can only listen to 1 music as this feature is currently experimental</string>
+    <string name="music_btn_1">Pause</string>
+    <string name="music_btn_2">Play</string>
+    <string name="music_btn_3">Stop</string>
+    <string name="music_stopped">Pressing back button will make music stops</string>
+    <string name="music_notification_title">Music is Running!</string>
+    <string name="music_notification_desc">Please open Calico to stop playback</string>
 
     <!-- Bottom Navigation Bar -->
     <string name="menu_offline_dish">Food + Drinks</string>

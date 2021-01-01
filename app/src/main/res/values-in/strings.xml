@@ -9,6 +9,9 @@
     <string name="update_btn">Perbarui</string>
     <string name="connect_btn">hubungkan</string>
     <string name="cancel_btn">Batal</string>
+    <string name="extras_btn">Pojok Calico</string>
+    <string name="music_player_btn">Calico Music Player</string>
+    <string name="timer_btn">Calico Timer Pengingat</string>
     <string name="no_connection">Mohon hubungkan perangkat dengan internet untuk dapat menggunakan Calico</string>
     <string name="form_max_length_error">Teks terlalu panjang</string>
     <string name="form_min_length_error">Teks terlalu pendek</string>
@@ -121,7 +124,43 @@
     <string name="profile_phone_placeholder">Nomor Telepon</string>
     <string name="profile_update_success">Profil berhasil diperbarui!</string>
 
-    <!-- Lain - Lain -->
+    <!-- Extras Screen Information -->
+    <string name="extras_list_title">Calico Extras</string>
+    <string name="extras_list_intro">Cobalah fitur lain dari Calico di sini</string>
+    <string name="extras_list_question_title">Pertanyaan Acak Spesial Untukmu</string>
+    <string name="extras_list_question_content">Sebuah Pertanyaan</string>
+
+    <string name="question_1">Pernahkan kamu berpikir, kenapa mie itu enak ?</string>
+    <string name="question_2">Apakah ayam dengan tingkat medium rare chickens aman untuk dimakan ?</string>
+    <string name="question_3">Apakah kamu pernah memasak steak ?</string>
+    <string name="question_4">Apakah kamu suka kue ?</string>
+    <string name="question_5">Jenis permen seperti apa yang kamu suka ?</string>
+    <string name="question_6">Pernahkan kamu berpikir kenapa sebagian keju itu wanginya tidak enak ?</string>
+    <string name="question_7">Kamu suka pancake ? Ada pancake manis dan asin lho!</string>
+    <string name="question_8">Apa pendapatmu tentang crepes asin ? Banyak orang yang suka lho!</string>
+    <string name="question_9">Cheese! Keju jenis apa yang pernah kamu coba ?</string>
+    <string name="question_10">Jus mangga untuk liburan, Bagaimana menurutmu ?</string>
+
+    <!-- Calico Timer -->
+    <string name="timer_title">Timer Pengingat Jurnal Calico</string>
+    <string name="timer_desc">Fitur countdown Calico untuk mengatur kapan Anda ingin diberikan notifikasi untuk menulis jurnal</string>
+    <string name="timer_btn_1">30 menit dari sekarang</string>
+    <string name="timer_btn_2">1 jam dari sekarang</string>
+    <string name="timer_btn_3">6 jam dari sekarang</string>
+    <string name="timer_btn_4">12 jam from now</string>
+    <string name="timer_success">Countdown berhasil diatur! Kamu akan mendapatkan notifikasi nanti</string>
+    <string name="timer_notification_title">Waktunya Menulis Jurnal!</string>
+    <string name="timer_notification_desc">Calico akan membantumu mencatat perjalanan memasakmu</string>
+
+    <!-- Calico Music Player -->
+    <string name="music_title">Calico Pemutar Musik (Eksperimental)</string>
+    <string name="music_desc">Kamu bisa memutar music selagi menulis jurnal. Fitur ini masih eksperimental, jadi hanya bisa memutar 1 musik saja</string>
+    <string name="music_btn_1">Pause</string>
+    <string name="music_btn_2">Mulai</string>
+    <string name="music_btn_3">Berhenti</string>
+    <string name="music_stopped">Menekan tombol kembali akan membuat musik berhenti</string>
+    <string name="music_notification_title">Music Sedang Berjalan!</string>
+    <string name="music_notification_desc">Silakan buka Calico untuk menghentikannya</string>
 
     <!-- Navigation Bar di Bawah -->
     <string name="menu_offline_dish">Makanan + Minuman</string>
