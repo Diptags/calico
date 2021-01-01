@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
@@ -36,7 +37,7 @@ class JournalListFragment : Fragment() {
     }
 
     private fun getJournals() {
-        journalViewModel.getAllJournal(requireContext())?.observe(requireActivity(), {
+        journalViewModel.getAllJournal(requireContext())?.observe(requireActivity()) {
 
             if (it.isNotEmpty()) {
                 val journalAdapter = JournalAdapter(this)
@@ -50,7 +51,7 @@ class JournalListFragment : Fragment() {
                     journal_list_empty_placeholder.visibility = View.GONE
                 }
             }
-        })
+        }
     }
 
     private fun changeFragmentToJournalCreateFragment() {

@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.PROFILE_IMAGE_NAME
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Preferences
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
@@ -44,7 +44,7 @@ class ProfileInfoFragment : Fragment() {
     }
 
     private fun showProfileImage() {
-        val profileImageFile: File = Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
+        val profileImageFile: File = GeneralHelpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
         if (profileImageFile.exists()) {
             val myBitmap = BitmapFactory.decodeFile(profileImageFile.absolutePath)
             profileImage.setImageBitmap(myBitmap)

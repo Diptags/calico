@@ -3,13 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico">
 
+    <!-- OpenGL -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" /> <!-- Camera -->
+        tools:ignore="ScopedStorage" />
+
+    <!-- Camera -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -36,10 +43,13 @@
         <activity android:name=".views.journal.JournalActivity" />
         <activity android:name=".views.journal.JournalDetailActivity" />
         <activity android:name=".views.profile.ProfileActivity" />
+        <activity android:name=".views.extras.ExtrasActivity" />
+        <activity android:name=".views.extras.countdown.CountDownActivity" />
+        <activity android:name=".views.extras.musicplayer.MusicPlayerActivity" />
 
         <!-- Service -->
         <service
-            android:name=".utils.services.ReminderService"
+            android:name=".utils.services.DailyReminderService"
             android:enabled="true"
             android:exported="false" />
 
@@ -69,10 +79,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
     </application>
-
 </manifest>

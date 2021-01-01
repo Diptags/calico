@@ -18,10 +18,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.User
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.*
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.misc.PermissionDeniedFragment
 import kotlinx.android.synthetic.main.profile_edit_fragment.*
@@ -93,7 +95,7 @@ class ProfileEditFragment : Fragment() {
 
     private fun showProfileImage() {
         val profileImageFile: File =
-            Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
+            GeneralHelpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
         if (profileImageFile.exists()) {
             val myBitmap = BitmapFactory.decodeFile(profileImageFile.absolutePath)
             profileImage.setImageBitmap(myBitmap)
@@ -109,15 +111,13 @@ class ProfileEditFragment : Fragment() {
 
         if (username != null) {
             userViewModel.getUserByUsername(requireContext(), username)
-                ?.observe(requireActivity(), {
-                    if (it != null) {
-                        signedInUser = it
-                        formName?.editText!!.setText(it.name)
-                        formUsername?.editText!!.setText(it.username)
-                        formEmail?.editText!!.setText(it.email)
-                        formPhoneNo?.editText!!.setText(it.phoneNo)
-                    }
-                })
+                ?.observe(requireActivity()) {
+                    signedInUser = it
+                    formName?.editText!!.setText(it.name)
+                    formUsername?.editText!!.setText(it.username)
+                    formEmail?.editText!!.setText(it.email)
+                    formPhoneNo?.editText!!.setText(it.phoneNo)
+                }
         }
     }
 
@@ -144,7 +144,7 @@ class ProfileEditFragment : Fragment() {
                     changeFragmentToPermissionDeniedFragment()
                     this.getString(R.string.permission_denied)
                 }
-            Helpers.showToastMessage(requireContext(), messageToUser)
+            GeneralHelpers.showToastMessage(requireContext(), messageToUser)
         }
     }
 
@@ -160,7 +160,7 @@ class ProfileEditFragment : Fragment() {
     private fun getProfileImageFile() {
 
         val photoFile = try {
-            Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
+            GeneralHelpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
         } catch (e: IOException) {
             e.printStackTrace()
             return
@@ -195,9 +195,9 @@ class ProfileEditFragment : Fragment() {
     }
 
     private fun renameTemporaryProfileImage(): Boolean {
-        Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
+        GeneralHelpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME_TEMP)
             .renameTo(
-                Helpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
+                GeneralHelpers.createImageFile(requireContext(), PROFILE_IMAGE_NAME)
             )
         return true
     }
@@ -282,7 +282,7 @@ class ProfileEditFragment : Fragment() {
             val user = compileUserData()
             userViewModel.updateUser(requireContext(), user)
             updateSharedPreferences()
-            Helpers.showToastMessage(requireContext(), R.string.profile_update_success)
+            GeneralHelpers.showToastMessage(requireContext(), R.string.profile_update_success)
         } else return
     }
 
@@ -303,7 +303,7 @@ class ProfileEditFragment : Fragment() {
             if (resultCode == Activity.RESULT_OK) {
                 profileImage.setImageURI(
                     Uri.parse(
-                        Helpers.createImageFile(
+                        GeneralHelpers.createImageFile(
                             requireContext(),
                             PROFILE_IMAGE_NAME_TEMP
                         ).absolutePath

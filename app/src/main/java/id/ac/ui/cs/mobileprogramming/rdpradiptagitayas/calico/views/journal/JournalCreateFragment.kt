@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.models.entities.Journal
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.JournalViewModel
 import kotlinx.android.synthetic.main.journal_create_fragment.*
 
@@ -127,7 +127,7 @@ class JournalCreateFragment : Fragment() {
             journalViewModel.journalMutableLiveData.value = null
             journalViewModel.addJournal(requireContext(), journal)
 
-            Helpers.showToastMessage(requireContext(), R.string.journal_create_success)
+            GeneralHelpers.showToastMessage(requireContext(), R.string.journal_create_success)
             changeFragmentToJournalDetailFragment()
 
         } else return

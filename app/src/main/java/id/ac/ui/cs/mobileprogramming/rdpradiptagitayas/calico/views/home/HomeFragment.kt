@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.dish.DishActivity
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.extras.ExtrasActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.journal.JournalActivity
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.views.profile.ProfileActivity
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -41,6 +42,10 @@ class HomeFragment : Fragment() {
 
         profileButton.setOnClickListener {
             startActivity(Intent(activity, ProfileActivity::class.java))
+        }
+
+        extrasButton.setOnClickListener {
+            startActivity(Intent(activity, ExtrasActivity::class.java))
         }
 
         mHandler = Handler()

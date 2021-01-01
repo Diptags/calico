@@ -6,7 +6,7 @@ import android.os.IBinder
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelpers
 
 
-class ReminderService : Service() {
+class DailyReminderService : Service() {
 
     override fun onBind(intent: Intent): IBinder? {
         return null

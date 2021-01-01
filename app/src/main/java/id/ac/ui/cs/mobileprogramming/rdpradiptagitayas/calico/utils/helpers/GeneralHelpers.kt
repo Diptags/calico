@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils
+package id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers
 
 import android.app.*
 import android.content.BroadcastReceiver
@@ -20,7 +20,7 @@ import java.io.File
 import java.util.*
 
 @Suppress("DEPRECATION")
-class Helpers {
+class GeneralHelpers {
 
     companion object {
 

@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputLayout
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.R
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.GENERAL_NOTIFICATION_CHANNEL_ID
-import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Helpers
+import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.helpers.GeneralHelpers
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.NOTIFICATION_CODE
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.Preferences
 import id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.viewmodels.UserViewModel
@@ -182,7 +182,7 @@ class AuthSignUpFragment : Fragment() {
             updateSharedPreferences(userData)
             showWelcomeNotification()
 
-            Helpers.showToastMessage(requireContext(), R.string.auth_success)
+            GeneralHelpers.showToastMessage(requireContext(), R.string.auth_success)
             startActivity(Intent(requireContext(), HomeActivity::class.java))
             requireActivity().finish()
 
@@ -199,7 +199,7 @@ class AuthSignUpFragment : Fragment() {
 
     private fun showWelcomeNotification() {
         val context = requireContext()
-        val pendingIntent: PendingIntent = Helpers.prepareNotificationIntent(context)
+        val pendingIntent: PendingIntent = GeneralHelpers.prepareNotificationIntent(context)
         val notificationLargeIcon =
             BitmapFactory.decodeResource(context.resources, R.drawable.logo_color)
 
