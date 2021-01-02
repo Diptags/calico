@@ -9,7 +9,7 @@ import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
 
 
-class MediaPlayerHolder(context: Context) : PlayerAdapter {
+class MusicPlayerHolder(context: Context) : PlayerAdapter {
     private val mContext: Context = context.getApplicationContext()
     private var mMediaPlayer: MediaPlayer? = null
     private var mResourceId = 0

@@ -118,7 +118,7 @@ class MusicPlayerActivity : AppCompatActivity() {
     }
 
     private fun initializePlaybackController() {
-        val mMediaPlayerHolder = MediaPlayerHolder(this)
+        val mMediaPlayerHolder = MusicPlayerHolder(this)
         mMediaPlayerHolder.setPlaybackInfoListener(PlaybackListener())
         mPlayerAdapter = mMediaPlayerHolder
     }

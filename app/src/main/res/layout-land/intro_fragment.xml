@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+    <id.ac.ui.cs.mobileprogramming.rdpradiptagitayas.calico.utils.opengl.OpenGLSurfaceView
+        android:id="@+id/open_gl_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="250dp"

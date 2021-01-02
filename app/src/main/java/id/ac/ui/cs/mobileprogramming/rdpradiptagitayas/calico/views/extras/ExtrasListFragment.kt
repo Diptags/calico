@@ -44,15 +44,15 @@ class ExtrasListFragment : Fragment() {
             R.string.question_7,
             R.string.question_8,
             R.string.question_9,
-            R.string.question_10,
+            R.string.question_10
         )
         randomQuestion.setText(questions[index])
     }
 
-    // Implementasi fungsi sumNumbers berada pada berkas C++
+    // Implementasi fungsi sumNumbers berada pada berkas C
     private external fun getRandomNumberFromNative(): Int
 
-    // Melakukan load berkas C++ dalam bentuk native library
+    // Melakukan load berkas C dalam bentuk native library
     companion object {
         init {
             System.loadLibrary("calico-lib")
